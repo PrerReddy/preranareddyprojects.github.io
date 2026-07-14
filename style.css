@@ -744,25 +744,33 @@ body {
 /* ==========================================================================
    5. SCREEN 3: HORIZONTAL LOOKBOOK SHOWCASE
    ========================================================================== */
+/* ==========================================================================
+   5. SCREEN 3: HORIZONTAL LOOKBOOK SHOWCASE (3D FOCUS)
+   ========================================================================== */
 .showcase-page {
     overflow: hidden;
     background-color: #ffffff;
+    /* Gives the entire page depth so 3D elements pop out toward you */
+    perspective: 1000px; 
 }
+
 .horizontal-scroll-row {
     display: flex;
     width: 100%;
     height: 100%;
-    overflow-x: auto; /* Keeps the horizontal scroll active */
-    -webkit-overflow-scrolling: touch; /* Smooth swiping on mobile devices */
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     scroll-snap-type: x mandatory;
     background-color: #000000;
     gap: 1px;
+    padding: 3rem 0; /* Creates breathing room at top and bottom for the zoom effect */
 }
 
+/* Base columns recede slightly by default */
 .showcase-column {
-    width: 33.333vw; /* Explicitly sets the base width */
-    min-width: 33.333vw; /* Guards the layout from squishing down */
-    flex-shrink: 0; /* CRITICAL: Prevents the columns from squeezing to fit the screen */
+    width: 33.333vw;
+    min-width: 33.333vw;
+    flex-shrink: 0;
     height: 100%;
     background-color: #ffffff;
     display: flex;
@@ -770,19 +778,49 @@ body {
     justify-content: space-between;
     padding: 4rem 2rem 2.5rem 2rem;
     scroll-snap-align: start;
+    
+    /* Smooth transition for zooming, shadows, and opacity changes */
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), 
+                box-shadow 0.5s ease, 
+                opacity 0.5s ease;
+    
+    position: relative;
+    z-index: 1;
 }
+
+/* 1. THE ZOOM & LIFT EFFECT (When Hovered/Focused) */
+.showcase-column:hover {
+    transform: scale(1.08) translateZ(30px); /* Scales up and pulls forward in 3D space */
+    z-index: 10; /* Ensures the zoomed column stacks cleanly over its neighbors */
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25); /* Heavy depth shadow underneath */
+}
+
+/* 2. THE DISSOLVE EFFECT (Dims out neighbors when one is in focus) */
+.horizontal-scroll-row:hover .showcase-column:not(:hover) {
+    opacity: 0.45; /* Drops the visibility of the unselected cards */
+    transform: scale(0.96); /* Slightly shrinks them to push them back */
+}
+
+/* Smooth inner asset scaling */
 .showcase-visual {
     flex-grow: 1;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 2rem;
+    perspective: 500px;
 }
 
 .showcase-image {
     max-width: 85%;
     max-height: 280px;
     object-fit: contain;
+    transition: transform 0.5s ease;
+}
+
+/* Subtle extra tilt on the image itself when parent is hovered */
+.showcase-column:hover .showcase-image {
+    transform: scale(1.05) translateY(-5px);
 }
 
 .showcase-meta {
@@ -809,7 +847,6 @@ body {
     color: #000000;
     font-weight: 700;
 }
-
 /* ==========================================================================
    6. RESPONSIVE CONTROLS
    ========================================================================== */
