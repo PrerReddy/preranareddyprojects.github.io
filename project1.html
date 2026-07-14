@@ -3,126 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Detail - Archive</title>
+    <title>Research Project Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="editorial-theme">
+<body class="grid-layout-body">
 
-    <!-- Fixed Editorial Navigation Bar -->
-    <header class="editorial-nav">
-        <div class="nav-left"><a href="index.html">← BACK TO ARCHIVE</a></div>
-        <div class="nav-right">
-            <span>PROJECT: 001</span>
-            <span>2026</span>
+    <!-- Scrollable wrapper to handle snapping between Intro and Archive Grid -->
+    <div class="homepage-scroll-container">
+        
+        <!-- SECTION 1: INTRO LANDING PAGE -->
+        <header class="intro-screen-section">
+            <div class="intro-content">
+                <div class="intro-meta">PORTFOLIO & ARCHIVE — 2026</div>
+                <h1 class="intro-title">Explorations in<br>Computational Neuroscience<br>& Machine Learning</h1>
+                <p class="intro-subtitle">A curated collection of research codebases, biological hardware configurations, and deep neural architectures.</p>
+                
+                <div class="scroll-prompt">
+                    <span>SCROLL DOWN TO EXPLORE</span>
+                    <div class="arrow-down">↓</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- SECTION 2: INTERACTIVE ARCHIVE GRID -->
+        <div class="archive-container">
+            <!-- FIXED SIDEBAR -->
+            <aside class="sidebar">
+                <div class="brand-title">
+                    <h2>Research<br>Project<br>Archive</h2>
+                </div>
+                <nav class="categories">
+                    <a href="#" class="active">All Projects</a>
+                    <a href="#">Reinforcement Learning</a>
+                    <a href="#">Computational Neuroscience</a>
+                    <a href="#">EEG Signal Processing</a>
+                </nav>
+            </aside>
+
+            <!-- PORTFOLIO GRID -->
+            <section class="project-grid">
+                <!-- First project links to your detailed project page -->
+                <a href="project.html" class="grid-box">
+                    <img src="eeg-cap.png" alt="EEG Signal Processor" class="grid-image">
+                    <div class="grid-hover-overlay">
+                        <span class="view-project-btn">VIEW PROJECT 001</span>
+                    </div>
+                </a>
+                
+                <a href="https://github.com" target="_blank" class="grid-box">
+                    <img src="neural-net.png" alt="RL Decision Engine" class="grid-image">
+                </a>
+                <a href="https://github.com" target="_blank" class="grid-box">
+                    <img src="memory-model.png" alt="Memory Model" class="grid-image">
+                </a>
+                <a href="https://github.com" target="_blank" class="grid-box">
+                    <img src="decoder-ui.png" alt="Neural Decoder" class="grid-image">
+                </a>
+                <div class="grid-box empty"></div>
+                <div class="grid-box empty"></div>
+            </section>
         </div>
-    </header>
 
-    <main class="scroll-container">
-
-        <!-- PAGE 1: INTRO / LIT REVIEW (Image + Heading) -->
-        <section class="viewport-page detail-intro-section">
-            <div class="editorial-layout">
-                <div class="text-column">
-                    <div class="section-meta">↓ INTRODUCTION / LIT REVIEW</div>
-                    <h2 class="custom-heading">EEG Signal Processing Engine</h2>
-                    <p class="editorial-p">
-                        This architecture addresses the long-standing bottlenecks in processing high-density, real-time electroencephalogram arrays. By implementing specialized temporal filtering algorithms alongside structural artifact dampening matrices, we preserve computational throughput without degrading vulnerable micro-voltage variations.
-                    </p>
-                    <p class="editorial-p">
-                        Traditional models routinely introduce artifact propagation biases during high-frequency cycles. Our approach implements localized variance thresholds that isolate ocular and muscular movement dynamics, isolating raw cognitive signatures with clear mathematical consistency.
-                    </p>
-                </div>
-                <div class="visual-column">
-                    <div class="hero-frame">
-                        <img src="eeg-cap.png" alt="System Setup Overview" class="fit-asset">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- PAGE 2: OBJECTIVES (Branch Layout) -->
-        <section class="viewport-page detail-objectives-section">
-            <div class="branch-container">
-                <div class="branch-head">
-                    <div class="section-meta">↓ SYSTEM TARGETS</div>
-                    <h2 class="custom-heading">Core Objectives</h2>
-                </div>
-                
-                <div class="branch-body">
-                    <!-- Branch Leaf 1 -->
-                    <div class="branch-leaf">
-                        <div class="leaf-number">01 / LATENCY MINIMIZATION</div>
-                        <p class="editorial-p">Reduce pipeline latency to sub-12 milliseconds to establish flawless hardware-in-the-loop validation matrices without sensory drag.</p>
-                    </div>
-                    
-                    <!-- Branch Leaf 2 -->
-                    <div class="branch-leaf">
-                        <div class="leaf-number">02 / ARTIFACT FILTRATION</div>
-                        <p class="editorial-p">Isolate micro-volt ocular and myogenic noises using deep temporal decomposition without truncating baseline cognitive bandwidth.</p>
-                    </div>
-
-                    <!-- Branch Leaf 3 -->
-                    <div class="branch-leaf">
-                        <div class="leaf-number">03 / REAL-TIME ECOSYSTEM</div>
-                        <p class="editorial-p">Architect modular cross-platform outputs designed to feed directly into reinforcement learning architectures natively.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- PAGE 3: METHODS & SETUP (Paragraphs + Images Grid Below) -->
-        <section class="viewport-page detail-methods-section">
-            <div class="methods-wrapper">
-                <div class="methods-text-block">
-                    <div class="section-meta">↓ METHODOLOGY & INFRASTRUCTURE</div>
-                    <h2 class="custom-heading">Experimental Configuration</h2>
-                    <p class="editorial-p">The physical environment consists of an isolated, electrically shielded chassis housing a 64-channel biometric amplifier layout arrayed with high-density sensors. Signal capture pipelines stream floating-point buffers into custom processing engines running on dedicated local hardware matrices to guarantee strict sample timing consistency.</p>
-                </div>
-                
-                <!-- Images positioned beneath writing content -->
-                <div class="methods-gallery">
-                    <div class="gallery-item">
-                        <img src="neural-net.png" alt="Signal routing architecture diagram" class="fit-asset">
-                        <div class="img-caption">Fig 1.1: Topological routing network map.</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="decoder-ui.png" alt="Biometric array configuration map" class="fit-asset">
-                        <div class="img-caption">Fig 1.2: Hardware channel mapping geometry profiles.</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- PAGE 4: RESULTS, CONCLUSION & REPOS -->
-        <section class="viewport-page detail-results-section">
-            <div class="results-wrapper">
-                <div class="results-left">
-                    <div class="section-meta">↓ METRICS & DISCUSSION</div>
-                    <h2 class="custom-heading">Analytical Conclusions</h2>
-                    <p class="editorial-p">Final evaluation cycles demonstrated a 34% upgrade in classification variance profiles when contrasted against typical filtering frameworks. The pipeline successfully managed high-bandwidth multi-channel inputs continuously without generating memory leaks or synchronization drift over persistent runtimes.</p>
-                </div>
-                
-                <div class="results-right">
-                    <div class="code-links-box">
-                        <div class="box-label">PROJECT DEPLOYMENTS</div>
-                        <a href="https://github.com" target="_blank" class="code-link-row">
-                            <span>Open Source Framework Repository</span>
-                            <span class="arrow-diagonal">↗</span>
-                        </a>
-                        <a href="https://github.com" target="_blank" class="code-link-row">
-                            <span>Statistical Verification Notebooks</span>
-                            <span class="arrow-diagonal">↗</span>
-                        </a>
-                        <a href="https://github.com" target="_blank" class="code-link-row">
-                            <span>Pre-trained Weights & Models</span>
-                            <span class="arrow-diagonal">↗</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
+    </div>
 
 </body>
 </html>
