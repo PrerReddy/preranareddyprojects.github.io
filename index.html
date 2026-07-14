@@ -8,6 +8,7 @@
 </head>
 <body>
 
+    <!-- Main wrapper handling the scroll snap -->
     <main class="scroll-container">
 
         <!-- SCREEN 1: THE INTRO PAGE -->
@@ -24,110 +25,16 @@
 
         <!-- SCREEN 2: THE ARCHIVE GRID PAGE -->
         <section class="viewport-page archive-page">
+            
+            <!-- LEFT SIDEBAR -->
             <aside class="sidebar">
                 <div class="brand-title">
                     <h1>Research<br>Project<br>Archive</h1>
                 </div>
+                
                 <nav class="categories">
                     <a href="#" class="active">All</a>
                     <a href="#">Reinforcement Learning</a>
-                    <a href="#">Computational Neuroscience</a>
-                    <a href="#">EEG Signal Processing</a>
-                    <a href="#">Decision Making</a>
-                </nav>
-            </aside>
-
-            <section class="project-grid">
-                <!-- Project Links (Grid Shelf) -->
-                <a href="https://github.com" target="_blank" class="grid-box">
-                    <img src="eeg-cap.png" alt="EEG Signal Processor" class="grid-image">
-                </a>
-                <a href="https://github.com" target="_blank" class="grid-box">
-                    <img src="neural-net.png" alt="RL Decision Engine" class="grid-image">
-                </a>
-                <a href="https://github.com" target="_blank" class="grid-box">
-                    <img src="memory-model.png" alt="Memory Model" class="grid-image">
-                </a>
-                <a href="https://github.com" target="_blank" class="grid-box">
-                    <img src="decoder-ui.png" alt="Neural Decoder" class="grid-image">
-                </a>
-                <div class="grid-box empty"></div>
-                <div class="grid-box empty"></div>
-            </section>
-        </section>
-
-       <!-- SCREEN 3: HORIZONTAL SHOWCASE CATALOG -->
-<section class="viewport-page showcase-page">
-    <div class="horizontal-scroll-row">
-
-        <!-- Showcase Item 1 -->
-        <div class="showcase-column">
-            <div class="showcase-visual">
-                <img src="eeg-cap.png" alt="EEG Signal Processor" class="showcase-image">
-            </div>
-            <div class="showcase-meta">
-                <div class="meta-row"><span>PROJECT</span><strong>EEG SIGNAL PROCESSOR</strong></div>
-                <div class="meta-row"><span>TYPE</span><strong>SIGNAL ANALYSIS / PYTHON</strong></div>
-                <div class="meta-row"><span>STATUS</span><strong>COMPLETED</strong></div>
-            </div>
-        </div>
-
-        <!-- Showcase Item 2 -->
-        <div class="showcase-column">
-            <div class="showcase-visual">
-                <img src="neural-net.png" alt="RL Decision Engine" class="showcase-image">
-            </div>
-            <div class="showcase-meta">
-                <div class="meta-row"><span>PROJECT</span><strong>RL DECISION ENGINE</strong></div>
-                <div class="meta-row"><span>TYPE</span><strong>REINFORCEMENT LEARNING</strong></div>
-                <div class="meta-row"><span>STATUS</span><strong>ACTIVE</strong></div>
-            </div>
-        </div>
-
-        <!-- Showcase Item 3 -->
-        <div class="showcase-column">
-            <div class="showcase-visual">
-                <img src="memory-model.png" alt="Memory Model" class="showcase-image">
-            </div>
-            <div class="showcase-meta">
-                <div class="meta-row"><span>PROJECT</span><strong>MEMORY MODEL</strong></div>
-                <div class="meta-row"><span>TYPE</span><strong>COMPUTATIONAL NEURO</strong></div>
-                <div class="meta-row"><span>STATUS</span><strong>ARCHIVED</strong></div>
-            </div>
-        </div>
-
-        <!-- ADDED MORE ITEMS HERE TO FORCE SIDE SCROLLING -->
-        <!-- Showcase Item 4 -->
-        <div class="showcase-column">
-            <div class="showcase-visual">
-                <img src="decoder-ui.png" alt="Neural Decoder" class="showcase-image">
-            </div>
-            <div class="showcase-meta">
-                <div class="meta-row"><span>PROJECT</span><strong>NEURAL DECODER</strong></div>
-                <div class="meta-row"><span>TYPE</span><strong>DECODER UI / JS</strong></div>
-                <div class="meta-row"><span>STATUS</span><strong>UPCOMING</strong></div>
-            </div>
-        </div>
-
-        <!-- Showcase Item 5 -->
-        <div class="showcase-column">
-            <div class="showcase-visual">
-                <img src="neural-net.png" alt="Future Project" class="showcase-image">
-            </div>
-            <div class="showcase-meta">
-                <div class="meta-row"><span>PROJECT</span><strong>FUTURE SCHEME</strong></div>
-                <div class="meta-row"><span>TYPE</span><strong>MODELING</strong></div>
-                <div class="meta-row"><span>STATUS</span><strong>PLANNING</strong></div>
-            </div>
-        </div>
-
-    </div>
-</section>
-        
-    </main>
-
-</body>
-</html>                    <a href="#">Reinforcement Learning</a>
                     <a href="#">Computational Neuroscience</a>
                     <a href="#">EEG Signal Processing</a>
                     <a href="#">Decision Making</a>
@@ -168,184 +75,5 @@
 
     </main>
 
-</body>
-</html>            <a href="#">Reinforcement Learning</a>
-            <a href="#">Computational Neuroscience</a>
-            <a href="#">EEG Signal Processing</a>
-            <a href="#">Decision Making</a>
-            <a href="#">Memory Systems</a>
-        </nav>
-    </aside>
-
-    <!-- RIGHT GRID CANVAS (THE SHELF) -->
-    <section class="project-grid">
-        
-        <!-- Project 1 Link -->
-        <a href="https://github.com/yourusername/eeg-signal-processor" target="_blank" class="grid-box">
-            <img src="eeg-cap.png" alt="EEG Signal Processor" class="grid-image">
-        </a>
-
-        <!-- Project 2 Link -->
-        <a href="https://github.com/yourusername/rl-decision-engine" target="_blank" class="grid-box">
-            <img src="neural-net.png" alt="RL Decision Engine" class="grid-image">
-        </a>
-
-        <!-- Project 3 Link -->
-        <a href="https://github.com/yourusername/computational-memory-model" target="_blank" class="grid-box">
-            <img src="memory-model.png" alt="Memory Model" class="grid-image">
-        </a>
-
-        <!-- Project 4 Link -->
-        <a href="https://github.com/yourusername/neural-decoder-ui" target="_blank" class="grid-box">
-            <img src="decoder-ui.png" alt="Neural Decoder" class="grid-image">
-        </a>
-
-        <!-- Empty decorative placeholder slots on the shelf -->
-        <div class="grid-box empty"></div>
-        <div class="grid-box empty"></div>
-        
-    </section>
-    
-</section>
-    </main>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research Project Archive</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-    <main class="scroll-container">
-
-        <!-- SCREEN 1: THE INTRO PAGE -->
-        <section class="viewport-page intro-page">
-            <div class="intro-content">
-                <h1>Research Project Archive</h1>
-                <p>Exploring the intersection of computational neuroscience, reinforcement learning, and human decision-making.</p>
-            </div>
-            <div class="scroll-prompt">
-                <span>Scroll to view archive</span>
-                <span class="arrow">↓</span>
-            </div>
-        </section>
-
-        <!-- SCREEN 2: THE ARCHIVE GRID PAGE -->
-        <section class="viewport-page archive-page">
-            <aside class="sidebar">
-                <div class="brand-title">
-                    <h1>Research<br>Project<br>Archive</h1>
-                </div>
-                <nav class="categories">
-                    <a href="#" class="active">All</a>
-                    <a href="#">Reinforcement Learning</a>
-                    <a href="#">Computational Neuroscience</a>
-                    <a href="#">EEG Signal Processing</a>
-                    <a href="#">Decision Making</a>
-                </nav>
-            </aside>
-
-            <section class="project-grid">
-                <!-- Project Links (Grid Shelf) -->
-                <a href="https://github.com" target="_blank" class="grid-box">
-                    <img src="eeg-cap.png" alt="EEG Signal Processor" class="grid-image">
-                </a>
-                <a href="https://github.com" target="_blank" class="grid-box">
-                    <img src="neural-net.png" alt="RL Decision Engine" class="grid-image">
-                </a>
-                <a href="https://github.com" target="_blank" class="grid-box">
-                    <img src="memory-model.png" alt="Memory Model" class="grid-image">
-                </a>
-                <a href="https://github.com" target="_blank" class="grid-box">
-                    <img src="decoder-ui.png" alt="Neural Decoder" class="grid-image">
-                </a>
-                <div class="grid-box empty"></div>
-                <div class="grid-box empty"></div>
-            </section>
-    
-
-        <!-- SCREEN 3: HORIZONTAL SHOWCASE CATALOG -->
-        <section class="viewport-page showcase-page">
-            <div class="horizontal-scroll-row">
-
-                <!-- Showcase Item 1 -->
-                <div class="showcase-column">
-                    <div class="showcase-visual">
-                        <img src="eeg-cap.png" alt="EEG Signal Processor" class="showcase-image">
-                    </div>
-                    <div class="showcase-meta">
-                        <div class="meta-row"><span>PROJECT</span><strong>EEG SIGNAL PROCESSOR</strong></div>
-                        <div class="meta-row"><span>TYPE</span><strong>SIGNAL ANALYSIS / PYTHON</strong></div>
-                        <div class="meta-row"><span>STATUS</span><strong>COMPLETED</strong></div>
-                    </div>
-                </div>
-
-                <!-- Showcase Item 2 -->
-                <div class="showcase-column">
-                    <div class="showcase-visual">
-                        <img src="neural-net.png" alt="RL Decision Engine" class="showcase-image">
-                    </div>
-                    <div class="showcase-meta">
-                        <div class="meta-row"><span>PROJECT</span><strong>RL DECISION ENGINE</strong></div>
-                        <div class="meta-row"><span>TYPE</span><strong>REINFORCEMENT LEARNING</strong></div>
-                        <div class="meta-row"><span>STATUS</span><strong>ACTIVE</strong></div>
-                    </div>
-                </div>
-
-                <!-- Showcase Item 3 -->
-                <div class="showcase-column">
-                    <div class="showcase-visual">
-                        <img src="memory-model.png" alt="Memory Model" class="showcase-image">
-                    </div>
-                    <div class="showcase-meta">
-                        <div class="meta-row"><span>PROJECT</span><strong>MEMORY MODEL</strong></div>
-                        <div class="meta-row"><span>TYPE</span><strong>COMPUTATIONAL NEURO</strong></div>
-                        <div class="meta-row"><span>STATUS</span><strong>ARCHIVED</strong></div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-    </main>
-</main>
-
-    <script>
-        const container = document.querySelector('.horizontal-scroll-row');
-        const columns = document.querySelectorAll('.showcase-column');
-
-        const checkFocus = () => {
-            const containerRect = container.getBoundingClientRect();
-            const containerCenter = containerRect.left + (containerRect.width / 2);
-
-            columns.forEach(column => {
-                const rect = column.getBoundingClientRect();
-                const columnCenter = rect.left + (rect.width / 2);
-                
-                // Calculate how close the card is to the exact center of the screen
-                const distanceFromCenter = Math.abs(containerCenter - columnCenter);
-                
-                // If the card center is close to the screen center, mark it active
-                if (distanceFromCenter < rect.width * 0.5) {
-                    column.classList.add('in-center-focus');
-                } else {
-                    column.classList.remove('in-center-focus');
-                }
-            });
-        };
-
-        // Listen for scroll shifts inside the horizontal row
-        container.addEventListener('scroll', checkFocus);
-        window.addEventListener('resize', checkFocus);
-        // Run once on load to catch the first item
-        checkFocus();
-    </script>
-</body>
-</html>
 </body>
 </html>
