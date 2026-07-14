@@ -1,128 +1,612 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Detail - Archive</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body class="editorial-theme">
+/* ==========================================================================
+   1. RESET & SYSTEM DEFAULTS
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <!-- Fixed Editorial Navigation Bar -->
-    <header class="editorial-nav">
-        <div class="nav-left"><a href="index.html">← BACK TO ARCHIVE</a></div>
-        <div class="nav-right">
-            <span>PROJECT: 001</span>
-            <span>2026</span>
-        </div>
-    </header>
+body {
+    background-color: #ffffff;
+    color: #000000;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
 
-    <main class="scroll-container">
+/* ==========================================================================
+   2. SCROLL-SNAP HOMEPAGE PORTAL (INDEX.HTML)
+   ========================================================================== */
+.grid-layout-body {
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
 
-        <!-- PAGE 1: INTRO / LIT REVIEW (Image + Heading) -->
-        <section class="viewport-page detail-intro-section">
-            <div class="editorial-layout">
-                <div class="text-column">
-                    <div class="section-meta">↓ INTRODUCTION / LIT REVIEW</div>
-                    <h2 class="custom-heading">EEG Signal Processing Engine</h2>
-                    <p class="editorial-p">
-                        This architecture addresses the long-standing bottlenecks in processing high-density, real-time electroencephalogram arrays. By implementing specialized temporal filtering algorithms alongside structural artifact dampening matrices, we preserve computational throughput without degrading vulnerable micro-voltage variations.
-                    </p>
-                    <p class="editorial-p">
-                        Traditional models routinely introduce artifact propagation biases during high-frequency cycles. Our approach implements localized variance thresholds that isolate ocular and muscular movement dynamics, isolating raw cognitive signatures with clear mathematical consistency.
-                    </p>
-                </div>
-                <div class="visual-column">
-                    <div class="hero-frame">
-                        <img src="eeg-cap.png" alt="System Setup Overview" class="fit-asset">
-                    </div>
-                </div>
-            </div>
-        </section>
+/* Container that allows snap scrolling on the home landing page */
+.homepage-scroll-container {
+    width: 100vw;
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    background-color: #f4f3ef; /* Matches the warm paper background */
+}
 
-        <!-- PAGE 2: OBJECTIVES (Branch Layout) -->
-        <section class="viewport-page detail-objectives-section">
-            <div class="branch-container">
-                <div class="branch-head">
-                    <div class="section-meta">↓ SYSTEM TARGETS</div>
-                    <h2 class="custom-heading">Core Objectives</h2>
-                </div>
-                
-                <div class="branch-body">
-                    <!-- Branch Leaf 1 -->
-                    <div class="branch-leaf">
-                        <div class="leaf-number">01 / LATENCY MINIMIZATION</div>
-                        <p class="editorial-p">Reduce pipeline latency to sub-12 milliseconds to establish flawless hardware-in-the-loop validation matrices without sensory drag.</p>
-                    </div>
-                    
-                    <!-- Branch Leaf 2 -->
-                    <div class="branch-leaf">
-                        <div class="leaf-number">02 / ARTIFACT FILTRATION</div>
-                        <p class="editorial-p">Isolate micro-volt ocular and myogenic noises using deep temporal decomposition without truncating baseline cognitive bandwidth.</p>
-                    </div>
+/* Fullscreen Intro Screen Styling */
+.intro-screen-section {
+    width: 100vw;
+    height: 100vh;
+    scroll-snap-align: start;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    background-color: #ffffff;
+    border-bottom: 1px solid #000000;
+    position: relative;
+}
 
-                    <!-- Branch Leaf 3 -->
-                    <div class="branch-leaf">
-                        <div class="leaf-number">03 / REAL-TIME ECOSYSTEM</div>
-                        <p class="editorial-p">Architect modular cross-platform outputs designed to feed directly into reinforcement learning architectures natively.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+.intro-content {
+    max-width: 800px;
+}
 
-        <!-- PAGE 3: METHODS & SETUP (Paragraphs + Images Grid Below) -->
-        <section class="viewport-page detail-methods-section">
-            <div class="methods-wrapper">
-                <div class="methods-text-block">
-                    <div class="section-meta">↓ METHODOLOGY & INFRASTRUCTURE</div>
-                    <h2 class="custom-heading">Experimental Configuration</h2>
-                    <p class="editorial-p">The physical environment consists of an isolated, electrically shielded chassis housing a 64-channel biometric amplifier layout arrayed with high-density sensors. Signal capture pipelines stream floating-point buffers into custom processing engines running on dedicated local hardware matrices to guarantee strict sample timing consistency.</p>
-                </div>
-                
-                <!-- Images positioned beneath writing content -->
-                <div class="methods-gallery">
-                    <div class="gallery-item">
-                        <img src="neural-net.png" alt="Signal routing architecture diagram" class="fit-asset">
-                        <div class="img-caption">Fig 1.1: Topological routing network map.</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="decoder-ui.png" alt="Biometric array configuration map" class="fit-asset">
-                        <div class="img-caption">Fig 1.2: Hardware channel mapping geometry profiles.</div>
-                    </div>
-                </div>
-            </div>
-        </section>
+.intro-meta {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: #8c8c8c;
+    margin-bottom: 1.5rem;
+}
 
-        <!-- PAGE 4: RESULTS, CONCLUSION & REPOS -->
-        <section class="viewport-page detail-results-section">
-            <div class="results-wrapper">
-                <div class="results-left">
-                    <div class="section-meta">↓ METRICS & DISCUSSION</div>
-                    <h2 class="custom-heading">Analytical Conclusions</h2>
-                    <p class="editorial-p">Final evaluation cycles demonstrated a 34% upgrade in classification variance profiles when contrasted against typical filtering frameworks. The pipeline successfully managed high-bandwidth multi-channel inputs continuously without generating memory leaks or synchronization drift over persistent runtimes.</p>
-                </div>
-                
-                <div class="results-right">
-                    <div class="code-links-box">
-                        <div class="box-label">PROJECT DEPLOYMENTS</div>
-                        <a href="https://github.com" target="_blank" class="code-link-row">
-                            <span>Open Source Framework Repository</span>
-                            <span class="arrow-diagonal">↗</span>
-                        </a>
-                        <a href="https://github.com" target="_blank" class="code-link-row">
-                            <span>Statistical Verification Notebooks</span>
-                            <span class="arrow-diagonal">↗</span>
-                        </a>
-                        <a href="https://github.com" target="_blank" class="code-link-row">
-                            <span>Pre-trained Weights & Models</span>
-                            <span class="arrow-diagonal">↗</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
+.intro-title {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+}
 
-    </main>
+.intro-subtitle {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #555555;
+    max-width: 600px;
+    margin-bottom: 4rem;
+}
 
-</body>
-</html>
+/* Interactive down arrow hint */
+.scroll-prompt {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #000000;
+}
+
+.arrow-down {
+    font-size: 1.1rem;
+    animation: bounce 1.8s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+}
+
+/* Interactive Grid Section Wrapper */
+.archive-container {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    height: 100vh;
+    width: 100vw;
+    scroll-snap-align: start;
+}
+
+/* Fixed Sidebar */
+.sidebar {
+    height: 100vh;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    border-right: 1px solid #000000;
+    background-color: #ffffff;
+}
+
+.brand-title h2 {
+    font-size: 1.5rem;
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+}
+
+.categories {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.categories a {
+    text-decoration: none;
+    color: #8c8c8c;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.categories a.active, .categories a:hover {
+    color: #000000;
+}
+
+/* ==========================================================================
+   3. EDITORIAL COLUMN TOC GRID (INDEX.HTML)
+   ========================================================================== */
+.editorial-column-grid {
+    height: 100vh;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    background-color: #ffffff;
+    gap: 0px;
+}
+
+/* Vertical column lanes with separation lines */
+.lane-column {
+    background-color: #f4f3ef; 
+    border-right: 1px solid #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem 1.2rem;
+    position: relative;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.lane-column:last-child {
+    border-right: none;
+}
+
+/* Header style with small metadata title and large category numeral */
+.lane-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1.5px solid #1a1a1a;
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.lane-title-meta {
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #1a1a1a;
+}
+
+/* Bold numeric marker */
+.lane-num {
+    font-family: 'Arial Black', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 0.8;
+    color: #1a1a1a;
+}
+
+/* Content layout for indexing inside columns */
+.lane-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/* Row wrapper mimicking Table of Contents items */
+.index-row {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 0.8rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    text-decoration: none;
+}
+
+.index-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 4px;
+}
+
+/* Dot leader effect dynamically filling remaining row spaces */
+.index-dots {
+    flex-grow: 1;
+    border-bottom: 1px dotted #1a1a1a;
+    margin-bottom: 3px;
+    opacity: 0.6;
+}
+
+.index-number {
+    padding-left: 4px;
+    font-family: monospace;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+/* Link modifications */
+.primary-link {
+    cursor: pointer;
+    transition: color 0.15s ease;
+}
+
+.primary-link:hover {
+    color: #8c8c8c;
+}
+
+.primary-link:hover .index-dots {
+    border-bottom: 1px dotted #8c8c8c;
+}
+
+/* Floating graphical assets configuration */
+.floating-asset-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2.5rem 0;
+    pointer-events: none; /* Allows click-through interaction on the column layers */
+}
+
+.floating-asset {
+    max-width: 85%;
+    height: auto;
+    max-height: 140px;
+    object-fit: contain;
+    filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.06));
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hovering animations matching the print specimens */
+.lane-column:hover .floating-asset {
+    transform: scale(1.08) rotate(2deg);
+}
+
+/* Special rotations for specific assets to mimic the book design layout */
+.yellow-stick {
+    transform: rotate(-15deg);
+}
+.keys-set {
+    transform: rotate(5deg);
+}
+.scissors-tool {
+    max-height: 180px;
+}
+
+/* ==========================================================================
+   4. EDITORIAL VIEWPORTS & VERTICAL SNAP (PROJECT.HTML)
+   ========================================================================== */
+.editorial-theme {
+    background-color: #f4f3ef; /* Warm paper-cream background */
+    color: #1a1a1a;
+}
+
+.editorial-theme .scroll-container {
+    width: 100vw;
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+.editorial-theme .viewport-page {
+    width: 100vw;
+    height: 100vh;
+    scroll-snap-align: start;
+    position: relative;
+    background-color: #f4f3ef;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+/* Fixed Navigation Header */
+.editorial-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3rem;
+    border-bottom: 1px solid #1a1a1a;
+    z-index: 100;
+    background-color: #f4f3ef;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+.editorial-nav a {
+    color: #1a1a1a;
+    text-decoration: none;
+}
+
+.nav-right {
+    display: flex;
+    gap: 2rem;
+}
+
+/* Editorial Typography Rules */
+.section-meta {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #666460;
+    margin-bottom: 1.5rem;
+}
+
+.custom-heading {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 2.5rem;
+}
+
+.editorial-p {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: #2b2a27;
+    margin-bottom: 1.5rem;
+    max-width: 580px;
+    text-align: justify;
+}
+
+/* ==========================================================================
+   5. DETAIL PAGE SECTION STYLES (PROJECT.HTML)
+   ========================================================================== */
+
+/* PAGE 1: INTRODUCTION */
+.detail-intro-section {
+    padding: 100px 3rem 4rem 3rem;
+}
+
+.editorial-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    height: 100%;
+    gap: 4rem;
+    align-items: center;
+}
+
+.visual-column {
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px solid #1a1a1a;
+    padding-left: 4rem;
+}
+
+.hero-frame {
+    width: 100%;
+    height: 100%;
+    max-height: 500px;
+    background-color: #eae8e2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.fit-asset {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* PAGE 2: OBJECTIVES BRANCHING */
+.detail-objectives-section {
+    padding: 6rem 3rem;
+    display: flex;
+    align-items: center;
+}
+
+.branch-container {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    width: 100%;
+    gap: 4rem;
+}
+
+.branch-body {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid #1a1a1a;
+}
+
+.branch-leaf {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    padding: 2.5rem 0;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+.leaf-number {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: #1a1a1a;
+    padding-top: 0.2rem;
+}
+
+/* PAGE 3: METHODS & SETUP GALLERY BELOW */
+.detail-methods-section {
+    padding: 6rem 3rem;
+    height: auto !important; /* Content stacks below naturally */
+    min-height: 100vh;
+}
+
+.methods-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    width: 100%;
+}
+
+.methods-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    border-top: 1px solid #1a1a1a;
+    padding-top: 3rem;
+}
+
+.gallery-item {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.gallery-item img {
+    background-color: #eae8e2;
+    padding: 3rem;
+    height: 350px;
+    object-fit: contain;
+}
+
+.img-caption {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #666460;
+}
+
+/* PAGE 4: RESULTS & EXTERNAL CODES */
+.detail-results-section {
+    padding: 6rem 3rem;
+}
+
+.results-wrapper {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    height: 100%;
+    align-items: center;
+}
+
+.code-links-box {
+    border: 1px solid #1a1a1a;
+    background-color: #eae8e2;
+    padding: 2.5rem;
+}
+
+.box-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 2rem;
+    color: #666460;
+}
+
+.code-link-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 0;
+    border-bottom: 1px solid #c5c3bd;
+    color: #1a1a1a;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: padding-left 0.2s ease, color 0.2s ease;
+}
+
+.code-link-row:last-child {
+    border-bottom: none;
+}
+
+.code-link-row:hover {
+    padding-left: 0.5rem;
+    color: #000000;
+}
+
+.arrow-diagonal {
+    font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   6. RESPONSIVE MEDIA CONTROLS
+   ========================================================================== */
+@media (max-width: 1400px) {
+    .editorial-column-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .lane-column {
+        border-bottom: 1px solid #1a1a1a;
+    }
+}
+
+@media (max-width: 900px) {
+    .intro-title {
+        font-size: 2.5rem;
+    }
+    .editorial-layout, .branch-container, .results-wrapper {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+    .visual-column {
+        border-left: none;
+        padding-left: 0;
+    }
+    .branch-leaf {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+    .methods-gallery {
+        grid-template-columns: 1fr;
+    }
+    .detail-intro-section {
+        padding-top: 80px;
+    }
+}
+
+@media (max-width: 850px) {
+    .editorial-column-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .grid-layout-body {
+        overflow: auto;
+        height: auto;
+    }
+    .homepage-scroll-container {
+        scroll-snap-type: none;
+        height: auto;
+        overflow-y: visible;
+    }
+    .intro-screen-section {
+        height: auto;
+        padding: 5rem 1.5rem;
+    }
+    .archive-container {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    .sidebar {
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid #000000;
+    }
+    .editorial-column-grid {
+        height: auto;
+        grid-template-columns: 1fr;
+    }
+    .lane-column {
+        border-right: none;
+    }
+}
