@@ -25,7 +25,7 @@
             </div>
         </header>
 
-        <!-- SECTION 2: INTERACTIVE ARCHIVE GRID -->
+      <!-- SECTION 2: INTERACTIVE EDITORIAL COLUMN GRID -->
         <div class="archive-container">
             <!-- FIXED SIDEBAR -->
             <aside class="sidebar">
@@ -40,31 +40,193 @@
                 </nav>
             </aside>
 
-            <!-- PORTFOLIO GRID -->
-            <section class="project-grid">
-                <!-- First project links to your detailed project page -->
-                <a href="project.html" class="grid-box">
-                    <img src="eeg-cap.png" alt="EEG Signal Processor" class="grid-image">
-                    <div class="grid-hover-overlay">
-                        <span class="view-project-btn">VIEW PROJECT 001</span>
+            <!-- EDITORIAL COLUMN ARCHIVE -->
+            <section class="editorial-column-grid">
+
+                <!-- COLUMN 1: EEG PROJECTS -->
+                <div class="lane-column">
+                    <div class="lane-header">
+                        <span class="lane-title-meta">EEG Processing</span>
+                        <span class="lane-num">1</span>
                     </div>
-                </a>
-                
-                <a href="https://github.com" target="_blank" class="grid-box">
-                    <img src="neural-net.png" alt="RL Decision Engine" class="grid-image">
-                </a>
-                <a href="https://github.com" target="_blank" class="grid-box">
-                    <img src="memory-model.png" alt="Memory Model" class="grid-image">
-                </a>
-                <a href="https://github.com" target="_blank" class="grid-box">
-                    <img src="decoder-ui.png" alt="Neural Decoder" class="grid-image">
-                </a>
-                <div class="grid-box empty"></div>
-                <div class="grid-box empty"></div>
+                    
+                    <div class="lane-content">
+                        <!-- Sub-project links -->
+                        <div class="index-row">
+                            <span class="index-title">Temporal Filtering</span>
+                            <span class="index-dots"></span>
+                            <span class="index-number">01</span>
+                        </div>
+                        <a href="project.html" class="index-row primary-link">
+                            <span class="index-title">Artifact Suppression</span>
+                            <span class="index-dots"></span>
+                            <span class="index-number">02</span>
+                        </a>
+
+                        <!-- Floating Project Asset -->
+                        <div class="floating-asset-container">
+                            <img src="eeg-cap.png" alt="EEG Cap Asset" class="floating-asset">
+                        </div>
+
+                        <div class="index-row">
+                            <span class="index-title">Baseline Calibration</span>
+                            <span class="index-dots"></span>
+                            <span class="index-number">03</span>
+                        </div>
+                        <div class="index-row">
+                            <span class="index-title">Electrode Mapping</span>
+                            <span class="index-dots"></span>
+                            <span class="index-number">04</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLUMN 2: REINFORCEMENT LEARNING -->
+                <div class="lane-column">
+                    <div class="lane-header">
+                        <span class="lane-title-meta">Decision RL</span>
+                        <span class="lane-num">2</span>
+                    </div>
+                    <div class="lane-content">
+                        <div class="index-row">
+                            <span class="index-title">Reward Optimization</span>
+                            <span class="index-dots"></span>
+                            <span class="index-number">05</span>
+                        </div>
+                        <div class="index-row">
+                            <span class="index-title">Policy Gradients</span>
+                            <span class="index-dots"></span>
+                            <span class="index-number">06</span>
+                        </div>
+
+                        <!-- Floating Asset -->
+                        <div class="floating-asset-container">
+                            <img src="neural-net.png" alt="Neural Net Asset" class="floating-asset yellow-stick">
+                        </div>
+
+                        <div class="index-row">
+                            <span class="index-title">Markov Chains</span>
+                            <span class="index-dots"></span>
+                            <span class="index-number">07</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLUMN 3: WORKING MEMORY -->
+                <div class="lane-column">
+                    <div class="lane-header">
+                        <span class="lane-title-meta">Memory Models</span>
+                        <span class="lane-num">3</span>
+                    </div>
+                    <div class="lane-content">
+                        <div class="index-row">
+                            <span class="index-title">Synaptic Plasticity</span>
+                            <span class="index-dots"></span>
+                            <span class="index-number">08</span>
+                        </div>
+                        <div class="index-row">
+                            <span class="index-title">Hippocampal Replay</span>
+                            <span class="index-dots"></span>
+                            <span class="index-number">09</span>
+                        </div>
+
+                        <!-- Floating Asset -->
+                        <div class="floating-asset-container">
+                            <img src="memory-model.png" alt="Memory Model Asset" class="floating-asset keys-set">
+                        </div>
+
+                        <div class="index-row">
+                            <span class="index-title">Recurrent Networks</span>
+                            <span class="index-dots"></span>
+                            <span class="index-number">10</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLUMN 4: BIOMETRICS & INTERFACES -->
+                <div class="lane-column">
+                    <div class="lane-header">
+                        <span class="lane-title-meta">Interfaces</span>
+                        <span class="lane-num">4</span>
+                    </div>
+                    <div class="lane-content">
+                        <div class="index-row">
+                            <span class="index-title">Signal Transduction</span>
+                            <span class="index-dots"></span>
+                            <span class="index-number">11</span>
+                        </div>
+
+                        <!-- Floating Asset -->
+                        <div class="floating-asset-container">
+                            <img src="decoder-ui.png" alt="Divider Asset" class="floating-asset compass-tool">
+                        </div>
+
+                        <div class="index-row">
+                            <span class="index-title">UI Noise Dampening</span>
+                            <span class="index-dots"></span>
+                            <span class="index-number">12</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLUMN 5: DEEP LEARNING ARCHITECTURES -->
+                <div class="lane-column">
+                    <div class="lane-header">
+                        <span class="lane-title-meta">Deep Learning</span>
+                        <span class="lane-num">5</span>
+                    </div>
+                    <div class="lane-content">
+                        <div class="index-row">
+                            <span class="index-title">Transformer Layers</span>
+                            <span class="index-dots"></span>
+                            <span class="index-number">13</span>
+                        </div>
+
+                        <!-- Floating Asset -->
+                        <div class="floating-asset-container">
+                            <img src="scissors.png" alt="Scissors" class="floating-asset scissors-tool">
+                        </div>
+
+                        <div class="index-row">
+                            <span class="index-title">Attention Maps</span>
+                            <span class="index-dots"></span>
+                            <span class="index-number">14</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLUMN 6: DATA ANALYSIS & PAPERS -->
+                <div class="lane-column">
+                    <div class="lane-header">
+                        <span class="lane-title-meta">Publications</span>
+                        <span class="lane-num">6</span>
+                    </div>
+                    <div class="lane-content">
+                        <div class="index-row">
+                            <span class="index-title">ArXiv Submissions</span>
+                            <span class="index-dots"></span>
+                            <span class="index-number">15</span>
+                        </div>
+                        <div class="index-row">
+                            <span class="index-title">Statistical Methods</span>
+                            <span class="index-dots"></span>
+                            <span class="index-number">16</span>
+                        </div>
+
+                        <!-- Floating Asset -->
+                        <div class="floating-asset-container">
+                            <img src="clock.png" alt="Clock Face" class="floating-asset clock-tool">
+                        </div>
+
+                        <div class="index-row">
+                            <span class="index-title">Citation Index</span>
+                            <span class="index-dots"></span>
+                            <span class="index-number">17</span>
+                        </div>
+                    </div>
+                </div>
+
             </section>
         </div>
+        </div>
 
-    </div>
-
-</body>
-</html>
