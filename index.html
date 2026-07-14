@@ -313,6 +313,39 @@
         </section>
 
     </main>
+</main>
 
+    <script>
+        const container = document.querySelector('.horizontal-scroll-row');
+        const columns = document.querySelectorAll('.showcase-column');
+
+        const checkFocus = () => {
+            const containerRect = container.getBoundingClientRect();
+            const containerCenter = containerRect.left + (containerRect.width / 2);
+
+            columns.forEach(column => {
+                const rect = column.getBoundingClientRect();
+                const columnCenter = rect.left + (rect.width / 2);
+                
+                // Calculate how close the card is to the exact center of the screen
+                const distanceFromCenter = Math.abs(containerCenter - columnCenter);
+                
+                // If the card center is close to the screen center, mark it active
+                if (distanceFromCenter < rect.width * 0.5) {
+                    column.classList.add('in-center-focus');
+                } else {
+                    column.classList.remove('in-center-focus');
+                }
+            });
+        };
+
+        // Listen for scroll shifts inside the horizontal row
+        container.addEventListener('scroll', checkFocus);
+        window.addEventListener('resize', checkFocus);
+        // Run once on load to catch the first item
+        checkFocus();
+    </script>
+</body>
+</html>
 </body>
 </html>
