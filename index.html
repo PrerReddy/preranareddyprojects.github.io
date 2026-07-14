@@ -3,45 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research Project Archive</title>
+    <title>Research Project Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="grid-layout-body">
 
-    <div class="archive-container">
-        <!-- FIXED SIDEBAR -->
-        <aside class="sidebar">
-            <div class="brand-title">
-                <h1>Research<br>Project<br>Archive</h1>
+    <!-- Scrollable wrapper to handle snapping between Intro and Archive Grid -->
+    <div class="homepage-scroll-container">
+        
+        <!-- SECTION 1: INTRO LANDING PAGE -->
+        <header class="intro-screen-section">
+            <div class="intro-content">
+                <div class="intro-meta">PORTFOLIO & ARCHIVE — 2026</div>
+                <h1 class="intro-title">Explorations in<br>Computational Neuroscience<br>& Machine Learning</h1>
+                <p class="intro-subtitle">A curated collection of research codebases, biological hardware configurations, and deep neural architectures.</p>
+                
+                <div class="scroll-prompt">
+                    <span>SCROLL DOWN TO EXPLORE</span>
+                    <div class="arrow-down">↓</div>
+                </div>
             </div>
-            <nav class="categories">
-                <a href="#" class="active">All</a>
-                <a href="#">Reinforcement Learning</a>
-                <a href="#">Computational Neuroscience</a>
-                <a href="#">EEG Signal Processing</a>
-                <a href="#">Decision Making</a>
-            </nav>
-        </aside>
+        </header>
 
-        <!-- PORTFOLIO GRID -->
-        <section class="project-grid">
-            <!-- First project links to your project detail page -->
-            <a href="project.html" class="grid-box">
-                <img src="eeg-cap.png" alt="EEG Signal Processor" class="grid-image">
-            </a>
-            
-            <a href="https://github.com" target="_blank" class="grid-box">
-                <img src="neural-net.png" alt="RL Decision Engine" class="grid-image">
-            </a>
-            <a href="https://github.com" target="_blank" class="grid-box">
-                <img src="memory-model.png" alt="Memory Model" class="grid-image">
-            </a>
-            <a href="https://github.com" target="_blank" class="grid-box">
-                <img src="decoder-ui.png" alt="Neural Decoder" class="grid-image">
-            </a>
-            <div class="grid-box empty"></div>
-            <div class="grid-box empty"></div>
-        </section>
+        <!-- SECTION 2: INTERACTIVE ARCHIVE GRID -->
+        <div class="archive-container">
+            <!-- FIXED SIDEBAR -->
+            <aside class="sidebar">
+                <div class="brand-title">
+                    <h2>Research<br>Project<br>Archive</h2>
+                </div>
+                <nav class="categories">
+                    <a href="#" class="active">All Projects</a>
+                    <a href="#">Reinforcement Learning</a>
+                    <a href="#">Computational Neuroscience</a>
+                    <a href="#">EEG Signal Processing</a>
+                </nav>
+            </aside>
+
+            <!-- PORTFOLIO GRID -->
+            <section class="project-grid">
+                <!-- First project links to your detailed project page -->
+                <a href="project.html" class="grid-box">
+                    <img src="eeg-cap.png" alt="EEG Signal Processor" class="grid-image">
+                    <div class="grid-hover-overlay">
+                        <span class="view-project-btn">VIEW PROJECT 001</span>
+                    </div>
+                </a>
+                
+                <a href="https://github.com" target="_blank" class="grid-box">
+                    <img src="neural-net.png" alt="RL Decision Engine" class="grid-image">
+                </a>
+                <a href="https://github.com" target="_blank" class="grid-box">
+                    <img src="memory-model.png" alt="Memory Model" class="grid-image">
+                </a>
+                <a href="https://github.com" target="_blank" class="grid-box">
+                    <img src="decoder-ui.png" alt="Neural Decoder" class="grid-image">
+                </a>
+                <div class="grid-box empty"></div>
+                <div class="grid-box empty"></div>
+            </section>
+        </div>
+
     </div>
 
 </body>
