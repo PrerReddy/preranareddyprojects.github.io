@@ -1,4 +1,6 @@
-/* 1. Resetting defaults & setting up colors */
+/* ==========================================================================
+   1. RESET & CORE VALUES
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -7,30 +9,34 @@
 }
 
 body {
-    background-color: #f7f4eb; /* Soft off-white canvas background */
+    background-color: #ffffff; /* Pure white background throughout */
     color: #27272a;
-    overflow: hidden; /* Prevents ugly double scrollbars */
+    overflow: hidden; /* Prevents double browser scrollbars */
 }
 
-/* 2. The Scroll Container (The Magic Part) */
+/* ==========================================================================
+   2. SCROLL VIEWPORT LOCKING (VERTICAL SNAP)
+   ========================================================================== */
 .scroll-container {
     width: 100vw;
     height: 100vh;
     overflow-y: scroll;
-    scroll-snap-type: y mandatory; /* Locks scroll direction vertically */
+    scroll-snap-type: y mandatory;
     scroll-smooth: smooth;
 }
 
-/* Each page takes up exactly the whole screen */
 .page {
     width: 100vw;
     height: 100vh;
-    scroll-snap-align: start; /* Tells the container where to snap */
+    scroll-snap-align: start;
     position: relative;
     display: flex;
+    background-color: #ffffff; /* Keeps both pages beautifully seamless */
 }
 
-/* 3. Page 1: Intro Page Styling */
+/* ==========================================================================
+   3. FIRST PAGE: INTRO / HERO SECTION
+   ========================================================================== */
 .hero-page {
     flex-direction: column;
     justify-content: space-between;
@@ -39,21 +45,22 @@ body {
 }
 
 .intro-text {
-    margin-auto: auto; /* Centers the text block perfectly vertically */
+    margin-top: auto;
+    margin-bottom: auto;
     text-align: center;
-    max-width: 600px;
+    max-width: 650px;
 }
 
 .intro-text h1 {
     font-size: 3.5rem;
     font-weight: 700;
-    color: #27272a;
+    color: #18181b;
     margin-bottom: 1.5rem;
     letter-spacing: -0.02em;
 }
 
 .intro-text p {
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     line-height: 1.6;
     color: #52525b;
 }
@@ -74,14 +81,14 @@ body {
     50% { transform: translateY(6px); }
 }
 
-/* 4. Page 2: The Project Canvas Styling */
+/* ==========================================================================
+   4. SECOND PAGE: THE INTERACTIVE CANVAS
+   ========================================================================== */
 .canvas-page {
-    background-color: #f4f0e6; /* Slightly darker shade for contrast */
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
     overflow: hidden;
 }
 
-/* Individual Interactive Project Items */
+/* Individual Interactive Project Elements */
 .project-item {
     position: absolute;
     display: flex;
@@ -89,73 +96,84 @@ body {
     align-items: center;
     text-decoration: none;
     cursor: pointer;
-    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    /* Ultra-smooth transformation spring effect */
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* The White Studio Icon Box */
+/* The Icon Box wrapper (No borders, backgrounds, or square boxes) */
 .icon-box {
-    width: 100px;
-    height: 100px;
-    background-color: #fdfcf7;
-    border: 1px solid rgba(39, 39, 42, 0.08);
-    border-radius: 24px;
+    width: 120px;
+    height: 120px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2.5rem;
-    /* Soft drop shadow simulating a 3D object resting on a surface */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-    transition: box-shadow 0.3s ease;
 }
 
-/* The Capsule Label Underneath */
+/* Image graphic styling */
+.project-icon {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    /* drop-shadow applies perfectly to the silhouette edges of transparent images */
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.06));
+    transition: filter 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* The Minimalist Capsule Label Underneath */
 .label {
-    margin-top: 0.75rem;
-    padding: 0.25rem 0.75rem;
+    margin-top: 1rem;
+    padding: 0.35rem 0.85rem;
     background-color: #ffffff;
     border: 1px solid #e4e4e7;
     border-radius: 9999px;
     font-size: 0.75rem;
     font-family: monospace;
-    color: #4b5563;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+    color: #3f3f46;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
     transition: all 0.3s ease;
+    white-space: nowrap;
 }
 
-/* Elegant Hover Effects */
+/* ==========================================================================
+   5. DYNAMIC INTERACTION STATES (HOVER)
+   ========================================================================== */
 .project-item:hover {
-    transform: scale(1.06) translateY(-4px); /* Gently pops out and floats up */
+    transform: scale(1.08) translateY(-8px); /* Lifts the item up off the page */
 }
 
-.project-item:hover .icon-box {
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+/* Deepens the drop shadow on hover to mimic dimensional height */
+.project-item:hover .project-icon {
+    filter: drop-shadow(0 22px 28px rgba(0, 0, 0, 0.12));
 }
 
+/* Sharp, stark inverse highlight on hover for the tag */
 .project-item:hover .label {
-    background-color: #27272a;
+    background-color: #18181b;
     color: #ffffff;
-    border-color: #27272a;
+    border-color: #18181b;
 }
 
-/* 5. Scattering Coordinates (X, Y layout mapping) */
-.item-1 { top: 20%; left: 15%; }
-.item-2 { top: 15%; left: 70%; }
-.item-3 { top: 55%; left: 45%; }
-.item-4 { top: 70%; left: 20%; }
+/* ==========================================================================
+   6. SCATTER COORDINATES MAPPING (THE "SPATIAL" GRID)
+   ========================================================================== */
+.item-1 { top: 18%; left: 15%; }
+.item-2 { top: 15%; left: 72%; }
+.item-3 { top: 52%; left: 45%; } /* Central anchoring focus */
+.item-4 { top: 68%; left: 18%; }
 
-/* Inventory badge at the bottom center */
+/* Minimalist inventory label locked to bottom center */
 .center-badge {
     position: absolute;
     bottom: 2.5rem;
     left: 50%;
     transform: translateX(-50%);
     padding: 0.5rem 1.25rem;
-    background-color: #eadecc;
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    background-color: #f4f4f5;
+    border: 1px solid #e4e4e7;
     border-radius: 9999px;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-family: monospace;
-    font-weight: 700;
+    font-weight: 600;
     color: #71717a;
     letter-spacing: 0.05em;
 }
