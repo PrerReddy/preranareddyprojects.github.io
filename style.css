@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. RESET & SYSTEM CORE
+   1. RESET & CORE SYSTEM
    ========================================================================== */
 * {
     margin: 0;
@@ -12,11 +12,11 @@ body {
     color: #000000;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
-    overflow: hidden; /* Disables standard double scrollbars */
+    overflow: hidden;
 }
 
 /* ==========================================================================
-   2. SCROLL VIEWPORT LOCKING (VERTICAL SNAP)
+   2. SCROLL ENGINE (VERTICAL SNAP)
    ========================================================================== */
 .scroll-container {
     width: 100vw;
@@ -26,7 +26,6 @@ body {
     scroll-smooth: smooth;
 }
 
-/* Base class ensuring each main segment occupies exactly one viewport */
 .viewport-page {
     width: 100vw;
     height: 100vh;
@@ -35,6 +34,526 @@ body {
     background-color: #ffffff;
 }
 
+/* ==========================================================================
+   3. SCREEN 1: INTRO PAGE
+   ========================================================================== */
+.intro-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4rem 2rem;
+    border-bottom: 1px solid #000000;
+}
+
+.intro-content {
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: center;
+    max-width: 700px;
+}
+
+.intro-content h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+    margin-bottom: 2rem;
+}
+
+.intro-content p {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: #666666;
+}
+
+.scroll-prompt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #999999;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+}
+
+/* ==========================================================================
+   4. SCREEN 2: THE ARCHIVE GRID
+   ========================================================================== */
+.archive-page {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    overflow: hidden;
+    border-bottom: 1px solid #000000;
+}
+
+.sidebar {
+    height: 100vh;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    border-right: 1px solid #000000;
+    background-color: #ffffff;
+}
+
+.brand-title h1 {
+    font-size: 2rem;
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+}
+
+.categories {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.categories a {
+    text-decoration: none;
+    color: #8c8c8c;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.categories a.active, .categories a:hover {
+    color: #000000;
+}
+
+.project-grid {
+    height: 100vh;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: #000000;
+    gap: 1px;
+}
+
+.grid-box {
+    background-color: #ffffff;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3.5rem;
+    transition: background-color 0.15s ease;
+}
+
+.grid-box:not(.empty):hover {
+    background-color: #f7f7f7;
+}
+
+.grid-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.grid-box.empty { cursor: default; }
+
+/* ==========================================================================
+   5. SCREEN 3: HORIZONTAL LOOKLOOK SHOWCASE
+   ========================================================================== */
+.showcase-page {
+    overflow: hidden;
+    background-color: #ffffff;
+    perspective: 1200px;
+}
+
+.horizontal-scroll-row {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    background-color: #000000;
+    gap: 1px;
+    padding: 4rem 0;
+}
+
+.showcase-column {
+    width: 33.333vw;
+    min-width: 33.333vw;
+    flex-shrink: 0;
+    height: 100%;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 4rem 2rem 2.5rem 2rem;
+    scroll-snap-align: start;
+    
+    opacity: 0.4;
+    transform: scale(0.9);
+    position: relative;
+    z-index: 1;
+    
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), 
+                box-shadow 0.6s ease, 
+                opacity 0.6s ease;
+}
+
+.showcase-column.in-center-focus {
+    transform: scale(1.06) translateZ(40px);
+    opacity: 1;
+    z-index: 10;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.18);
+}
+
+.showcase-visual {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.showcase-image {
+    max-width: 85%;
+    max-height: 280px;
+    object-fit: contain;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.showcase-column.in-center-focus .showcase-image {
+    transform: scale(1.04) translateY(-8px);
+}
+
+.showcase-meta {
+    border-top: 1px solid #e5e5e5;
+    padding-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.meta-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    letter-spacing: 0.02em;
+}
+
+.meta-row span {
+    color: #737373;
+    font-weight: 500;
+}
+
+.meta-row strong {
+    color: #000000;
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   6. RESPONSIVE CONTROLS
+   ========================================================================== */
+@media (max-width: 1100px) {
+    .showcase-column {
+        width: 50vw;
+        min-width: 50vw;
+    }
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 650px) {
+    .scroll-container {
+        overflow-y: scroll;
+        scroll-snap-type: none;
+    }
+    .viewport-page { height: auto; }
+    .archive-page { grid-template-columns: 1fr; height: auto; }
+    .sidebar { height: auto; border-right: none; border-bottom: 1px solid #000000; }
+    .project-grid { height: auto; grid-template-columns: 1fr; }
+    
+    .showcase-page { height: auto; }
+    .horizontal-scroll-row { flex-direction: column; height: auto; padding: 0; }
+    .showcase-column { 
+        width: 100% !important; 
+        min-width: 100% !important; 
+        height: 500px; 
+        border-bottom: 1px solid #000000; 
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* ==========================================================================
+   7. EDITORIAL DETAIL PAGES (SNELLING THEME INSPIRATION)
+   ========================================================================== */
+.editorial-theme {
+    background-color: #f4f3ef; /* Muted paper cream color */
+    color: #1a1a1a;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.editorial-theme .viewport-page {
+    background-color: #f4f3ef;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+.editorial-theme .scroll-container {
+    scroll-snap-type: y mandatory;
+}
+
+/* Fixed Editorial Nav Header */
+.editorial-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3rem;
+    border-bottom: 1px solid #1a1a1a;
+    z-index: 100;
+    background-color: #f4f3ef;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+.editorial-nav a {
+    color: #1a1a1a;
+    text-decoration: none;
+}
+
+.nav-right {
+    display: flex;
+    gap: 2rem;
+}
+
+/* Global Content Standards */
+.section-meta {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #666460;
+    margin-bottom: 1.5rem;
+}
+
+.custom-heading {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 2.5rem;
+}
+
+.editorial-p {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: #2b2a27;
+    margin-bottom: 1.5rem;
+    max-width: 580px;
+    text-align: justify;
+}
+
+/* SECTION 1: INTRO */
+.detail-intro-section {
+    padding: 100px 3rem 4rem 3rem;
+}
+
+.editorial-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    height: 100%;
+    gap: 4rem;
+    align-items: center;
+}
+
+.visual-column {
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px solid #1a1a1a;
+    padding-left: 4rem;
+}
+
+.hero-frame {
+    width: 100%;
+    height: 100%;
+    max-height: 500px;
+    background-color: #eae8e2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.fit-asset {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* SECTION 2: OBJECTIVES */
+.detail-objectives-section {
+    padding: 6rem 3rem;
+    display: flex;
+    align-items: center;
+}
+
+.branch-container {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    width: 100%;
+    gap: 4rem;
+}
+
+.branch-body {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid #1a1a1a;
+}
+
+.branch-leaf {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    padding: 2.5rem 0;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+.leaf-number {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: #1a1a1a;
+    padding-top: 0.2rem;
+}
+
+/* SECTION 3: METHODS */
+.detail-methods-section {
+    padding: 6rem 3rem;
+    height: auto !important;
+    min-height: 100vh;
+}
+
+.methods-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    width: 100%;
+}
+
+.methods-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    border-top: 1px solid #1a1a1a;
+    padding-top: 3rem;
+}
+
+.gallery-item {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.gallery-item img {
+    background-color: #eae8e2;
+    padding: 3rem;
+    height: 350px;
+    object-fit: contain;
+}
+
+.img-caption {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #666460;
+}
+
+/* SECTION 4: RESULTS */
+.detail-results-section {
+    padding: 6rem 3rem;
+}
+
+.results-wrapper {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    height: 100%;
+    align-items: center;
+}
+
+.code-links-box {
+    border: 1px solid #1a1a1a;
+    background-color: #eae8e2;
+    padding: 2.5rem;
+}
+
+.box-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 2rem;
+    color: #666460;
+}
+
+.code-link-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 0;
+    border-bottom: 1px solid #c5c3bd;
+    color: #1a1a1a;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: padding-left 0.2s ease, color 0.2s ease;
+}
+
+.code-link-row:last-child {
+    border-bottom: none;
+}
+
+.code-link-row:hover {
+    padding-left: 0.5rem;
+    color: #000000;
+}
+
+.arrow-diagonal {
+    font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   8. RESPONSIVE CONTROLS FOR EDITORIAL PAGES
+   ========================================================================== */
+@media (max-width: 900px) {
+    .editorial-layout, .branch-container, .results-wrapper {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+    .visual-column {
+        border-left: none;
+        padding-left: 0;
+    }
+    .branch-leaf {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+    .methods-gallery {
+        grid-template-columns: 1fr;
+    }
+    .detail-intro-section {
+        padding-top: 80px;
+    }
+}
 /* ==========================================================================
    3. SCREEN 1: MINIMALIST INTRO PAGE
    ========================================================================== */
