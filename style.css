@@ -1,17 +1,18 @@
 /* ==========================================================================
-   1. RESET & CORE VALUES
+   1. RESET & SYSTEM CORE
    ========================================================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 body {
-    background-color: #ffffff; /* Pure white background throughout */
-    color: #27272a;
-    overflow: hidden; /* Prevents double browser scrollbars */
+    background-color: #ffffff;
+    color: #000000;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden; /* Disables standard double scrollbars */
 }
 
 /* ==========================================================================
@@ -25,7 +26,181 @@ body {
     scroll-smooth: smooth;
 }
 
-.page {
+/* Base class ensuring each main segment occupies exactly one viewport */
+.viewport-page {
+    width: 100vw;
+    height: 100vh;
+    scroll-snap-align: start;
+    position: relative;
+    background-color: #ffffff;
+}
+
+/* ==========================================================================
+   3. SCREEN 1: MINIMALIST INTRO PAGE
+   ========================================================================== */
+.intro-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4rem 2rem;
+    border-bottom: 1px solid #000000;
+}
+
+.intro-content {
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: center;
+    max-width: 700px;
+}
+
+.intro-content h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+    margin-bottom: 2rem;
+}
+
+.intro-content p {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: #666666;
+    font-weight: 400;
+}
+
+.scroll-prompt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #999999;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+}
+
+/* ==========================================================================
+   4. SCREEN 2: SPLIT-SCREEN GRID LAYOUT
+   ========================================================================== */
+.archive-page {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    overflow: hidden;
+}
+
+/* Sidebar locks strictly inside Screen 2 */
+.sidebar {
+    height: 100vh;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    border-right: 1px solid #000000;
+    background-color: #ffffff;
+}
+
+.brand-title h1 {
+    font-size: 2rem;
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+}
+
+.categories {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.categories a {
+    text-decoration: none;
+    color: #8c8c8c;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.categories a:hover, 
+.categories a.active {
+    color: #000000;
+}
+
+/* ==========================================================================
+   5. BRUTALIST GRID DESIGN
+   ========================================================================== */
+.project-grid {
+    height: 100vh;
+    overflow-y: auto; /* Allows independent grid scrolling if items overflow */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: #000000;
+    gap: 1px;
+}
+
+.grid-box {
+    background-color: #ffffff;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3.5rem;
+    text-decoration: none;
+    transition: background-color 0.15s ease;
+}
+
+.grid-box:not(.empty):hover {
+    background-color: #f7f7f7;
+}
+
+.grid-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.grid-box.empty {
+    cursor: default;
+}
+
+/* ==========================================================================
+   6. RESPONSIVE CONTROLS
+   ========================================================================== */
+@media (max-width: 1000px) {
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 650px) {
+    .scroll-container {
+        overflow-y: scroll;
+        scroll-snap-type: none; /* Disables snap mechanics on mobile for easy browsing */
+    }
+    .viewport-page {
+        height: auto;
+    }
+    .archive-page {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    .sidebar {
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid #000000;
+    }
+    .project-grid {
+        height: auto;
+        grid-template-columns: 1fr;
+    }
+}.page {
     width: 100vw;
     height: 100vh;
     scroll-snap-align: start;
