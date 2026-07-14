@@ -8,7 +8,6 @@
 </head>
 <body>
 
-    <!-- Main wrapper handling the scroll snap -->
     <main class="scroll-container">
 
         <!-- SCREEN 1: THE INTRO PAGE -->
@@ -25,16 +24,85 @@
 
         <!-- SCREEN 2: THE ARCHIVE GRID PAGE -->
         <section class="viewport-page archive-page">
-            
-            <!-- LEFT SIDEBAR -->
             <aside class="sidebar">
                 <div class="brand-title">
                     <h1>Research<br>Project<br>Archive</h1>
                 </div>
-                
                 <nav class="categories">
                     <a href="#" class="active">All</a>
                     <a href="#">Reinforcement Learning</a>
+                    <a href="#">Computational Neuroscience</a>
+                    <a href="#">EEG Signal Processing</a>
+                    <a href="#">Decision Making</a>
+                </nav>
+            </aside>
+
+            <section class="project-grid">
+                <!-- Project Links (Grid Shelf) -->
+                <a href="https://github.com" target="_blank" class="grid-box">
+                    <img src="eeg-cap.png" alt="EEG Signal Processor" class="grid-image">
+                </a>
+                <a href="https://github.com" target="_blank" class="grid-box">
+                    <img src="neural-net.png" alt="RL Decision Engine" class="grid-image">
+                </a>
+                <a href="https://github.com" target="_blank" class="grid-box">
+                    <img src="memory-model.png" alt="Memory Model" class="grid-image">
+                </a>
+                <a href="https://github.com" target="_blank" class="grid-box">
+                    <img src="decoder-ui.png" alt="Neural Decoder" class="grid-image">
+                </a>
+                <div class="grid-box empty"></div>
+                <div class="grid-box empty"></div>
+            </section>
+        </section>
+
+        <!-- SCREEN 3: HORIZONTAL SHOWCASE CATALOG -->
+        <section class="viewport-page showcase-page">
+            <div class="horizontal-scroll-row">
+
+                <!-- Showcase Item 1 -->
+                <div class="showcase-column">
+                    <div class="showcase-visual">
+                        <img src="eeg-cap.png" alt="EEG Signal Processor" class="showcase-image">
+                    </div>
+                    <div class="showcase-meta">
+                        <div class="meta-row"><span>PROJECT</span><strong>EEG SIGNAL PROCESSOR</strong></div>
+                        <div class="meta-row"><span>TYPE</span><strong>SIGNAL ANALYSIS / PYTHON</strong></div>
+                        <div class="meta-row"><span>STATUS</span><strong>COMPLETED</strong></div>
+                    </div>
+                </div>
+
+                <!-- Showcase Item 2 -->
+                <div class="showcase-column">
+                    <div class="showcase-visual">
+                        <img src="neural-net.png" alt="RL Decision Engine" class="showcase-image">
+                    </div>
+                    <div class="showcase-meta">
+                        <div class="meta-row"><span>PROJECT</span><strong>RL DECISION ENGINE</strong></div>
+                        <div class="meta-row"><span>TYPE</span><strong>REINFORCEMENT LEARNING</strong></div>
+                        <div class="meta-row"><span>STATUS</span><strong>ACTIVE</strong></div>
+                    </div>
+                </div>
+
+                <!-- Showcase Item 3 -->
+                <div class="showcase-column">
+                    <div class="showcase-visual">
+                        <img src="memory-model.png" alt="Memory Model" class="showcase-image">
+                    </div>
+                    <div class="showcase-meta">
+                        <div class="meta-row"><span>PROJECT</span><strong>MEMORY MODEL</strong></div>
+                        <div class="meta-row"><span>TYPE</span><strong>COMPUTATIONAL NEURO</strong></div>
+                        <div class="meta-row"><span>STATUS</span><strong>ARCHIVED</strong></div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>                    <a href="#">Reinforcement Learning</a>
                     <a href="#">Computational Neuroscience</a>
                     <a href="#">EEG Signal Processing</a>
                     <a href="#">Decision Making</a>
