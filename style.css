@@ -24,17 +24,517 @@ body {
     width: 100vw;
 }
 
-/* Container that allows snap scrolling on the home landing page */
 .homepage-scroll-container {
     width: 100vw;
     height: 100vh;
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
-    background-color: #f4f3ef; /* Matches the warm paper background */
+    background-color: #f4f3ef;
 }
 
-/* Fullscreen Intro Screen Styling */
+/* Intro Screen */
+.intro-screen-section {
+    width: 100vw;
+    height: 100vh;
+    scroll-snap-align: start;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    background-color: #ffffff;
+    border-bottom: 1px solid #000000;
+    position: relative;
+}
+
+.intro-content {
+    max-width: 800px;
+}
+
+.intro-meta {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: #8c8c8c;
+    margin-bottom: 1.5rem;
+}
+
+.intro-title {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+}
+
+.intro-subtitle {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #555555;
+    max-width: 600px;
+    margin-bottom: 4rem;
+}
+
+.scroll-prompt {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #000000;
+}
+
+.arrow-down {
+    font-size: 1.1rem;
+    animation: bounce 1.8s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+}
+
+/* Interactive Grid Section Wrapper */
+.archive-container {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    height: 100vh;
+    width: 100vw;
+    scroll-snap-align: start;
+}
+
+.sidebar {
+    height: 100vh;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    border-right: 1px solid #000000;
+    background-color: #ffffff;
+}
+
+.brand-title h2 {
+    font-size: 1.5rem;
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+}
+
+.categories {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.categories a {
+    text-decoration: none;
+    color: #8c8c8c;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.categories a.active, .categories a:hover {
+    color: #000000;
+}
+
+/* ==========================================================================
+   3. EDITORIAL COLUMN TOC GRID (INDEX.HTML)
+   ========================================================================== */
+.editorial-column-grid {
+    height: 100vh;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Set to 4 columns for your projects */
+    background-color: #ffffff;
+    gap: 0px;
+}
+
+a.lane-column-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+}
+
+a.lane-column-link:hover .lane-column {
+    background-color: #eae8e2;
+}
+
+.lane-column {
+    background-color: #f4f3ef; 
+    border-right: 1px solid #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem 1.2rem;
+    position: relative;
+    height: 100%;
+    overflow-y: auto;
+    transition: background-color 0.2s ease;
+}
+
+.lane-column:last-child {
+    border-right: none;
+}
+
+.lane-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1.5px solid #1a1a1a;
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.lane-title-meta {
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #1a1a1a;
+}
+
+.lane-num {
+    font-family: 'Arial Black', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 0.8;
+    color: #1a1a1a;
+}
+
+.lane-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.index-row {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 0.8rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.index-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 4px;
+}
+
+.index-dots {
+    flex-grow: 1;
+    border-bottom: 1px dotted #1a1a1a;
+    margin-bottom: 3px;
+    opacity: 0.6;
+}
+
+.index-number {
+    padding-left: 4px;
+    font-family: monospace;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+/* Floating Assets */
+.floating-asset-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2.5rem 0;
+    pointer-events: none;
+}
+
+.floating-asset {
+    max-width: 85%;
+    height: auto;
+    max-height: 140px;
+    object-fit: contain;
+    filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.06));
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lane-column:hover .floating-asset {
+    transform: scale(1.08) rotate(2deg);
+}
+
+.yellow-stick { transform: rotate(-15deg); }
+.keys-set { transform: rotate(5deg); }
+
+/* ==========================================================================
+   4. PROJECT DETAIL SLIDE LAYOUT (DARK THEME - PRANAYAMA.HTML)
+   ========================================================================== */
+body.project-slide-body {
+    margin: 0;
+    padding: 0;
+    background-color: #0d0d0d;
+    color: #e6e6e6;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    overflow: hidden;
+}
+
+.editorial-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 24px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    box-sizing: border-box;
+    background: linear-gradient(to bottom, rgba(13,13,13,0.95), rgba(13,13,13,0));
+    pointer-events: none;
+}
+
+.editorial-nav a, 
+.editorial-nav div {
+    pointer-events: auto;
+}
+
+.back-link {
+    color: #a0a0a0;
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.2s ease;
+}
+
+.back-link:hover {
+    color: #ffffff;
+}
+
+.project-meta-nav {
+    display: flex;
+    gap: 20px;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    color: #707070;
+}
+
+.slide-scroll-container {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+.slide-section {
+    height: 100vh;
+    width: 100%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 40px 40px;
+    box-sizing: border-box;
+    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.slide-content {
+    max-width: 900px;
+    width: 100%;
+}
+
+.slide-meta {
+    display: block;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    color: #888;
+    margin-bottom: 16px;
+}
+
+.slide-title {
+    font-size: 3.2rem;
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin: 0 0 24px 0;
+    color: #ffffff;
+}
+
+.slide-heading {
+    font-size: 2.2rem;
+    font-weight: 300;
+    margin: 0 0 24px 0;
+    color: #ffffff;
+}
+
+.slide-lead {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: #b0b0b0;
+    font-weight: 300;
+    max-width: 750px;
+    margin: 0 0 32px 0;
+}
+
+.overview-highlights {
+    display: flex;
+    gap: 40px;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.highlight-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.item-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: #666;
+    text-transform: uppercase;
+}
+
+.item-val {
+    font-size: 0.95rem;
+    color: #ddd;
+}
+
+.slide-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.grid-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 32px;
+    border-radius: 4px;
+}
+
+.grid-card h3 {
+    margin: 0 0 12px 0;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #fff;
+}
+
+.grid-card p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #a0a0a0;
+}
+
+.task-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.task-step-card {
+    display: flex;
+    gap: 24px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 24px;
+    align-items: flex-start;
+}
+
+.step-num {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #555;
+}
+
+.task-step-card h4 {
+    margin: 0 0 6px 0;
+    color: #fff;
+    font-weight: 400;
+}
+
+.task-step-card p {
+    margin: 0;
+    color: #999;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.slide-visual-frame {
+    margin-top: 24px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.slide-image {
+    max-height: 140px;
+    object-fit: contain;
+    filter: drop-shadow(0px 10px 20px rgba(0,0,0,0.5));
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 32px;
+    left: 40px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    color: #555;
+}
+
+/* ==========================================================================
+   5. RESPONSIVE CONTROLS
+   ========================================================================== */
+@media (max-width: 900px) {
+    .editorial-column-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .slide-grid {
+        grid-template-columns: 1fr;
+    }
+    .intro-title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .grid-layout-body {
+        overflow: auto;
+        height: auto;
+    }
+    .homepage-scroll-container {
+        scroll-snap-type: none;
+        height: auto;
+        overflow-y: visible;
+    }
+    .intro-screen-section {
+        height: auto;
+        padding: 5rem 1.5rem;
+    }
+    .archive-container {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    .sidebar {
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid #000000;
+    }
+    .editorial-column-grid {
+        height: auto;
+        grid-template-columns: 1fr;
+    }
+}/* Fullscreen Intro Screen Styling */
 .intro-screen-section {
     width: 100vw;
     height: 100vh;
