@@ -610,3 +610,243 @@ body {
         border-right: none;
     }
 }
+
+/* ==========================================================================
+   PROJECT DETAIL PAGE (SNAP SCROLL LAYOUT)
+   ========================================================================== */
+
+/* Body setup for full-viewport snapping */
+body.project-slide-body {
+    margin: 0;
+    padding: 0;
+    background-color: #0d0d0d;
+    color: #e6e6e6;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    overflow: hidden; /* Lock natural body scroll so container handles snapping */
+}
+
+/* Fixed Navigation Header */
+.editorial-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 24px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    box-sizing: border-box;
+    background: linear-gradient(to bottom, rgba(13,13,13,0.95), rgba(13,13,13,0));
+    pointer-events: none; /* Let scroll pass through */
+}
+
+.editorial-nav a, 
+.editorial-nav div {
+    pointer-events: auto;
+}
+
+.back-link {
+    color: #a0a0a0;
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.2s ease;
+}
+
+.back-link:hover {
+    color: #ffffff;
+}
+
+.project-meta-nav {
+    display: flex;
+    gap: 20px;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    color: #707070;
+}
+
+/* Fullscreen Scroll Container */
+.slide-scroll-container {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+/* Fullscreen Slide Sections */
+.slide-section {
+    height: 100vh;
+    width: 100%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 40px 40px;
+    box-sizing: border-box;
+    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.slide-content {
+    max-width: 900px;
+    width: 100%;
+}
+
+/* Meta Labels & Headers */
+.slide-meta {
+    display: block;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    color: #888;
+    margin-bottom: 16px;
+}
+
+.slide-title {
+    font-size: 3.2rem;
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin: 0 0 24px 0;
+    color: #ffffff;
+}
+
+.slide-heading {
+    font-size: 2.2rem;
+    font-weight: 300;
+    margin: 0 0 24px 0;
+    color: #ffffff;
+}
+
+.slide-lead {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: #b0b0b0;
+    font-weight: 300;
+    max-width: 750px;
+    margin: 0 0 32px 0;
+}
+
+/* Section 1 Highlights */
+.overview-highlights {
+    display: flex;
+    gap: 40px;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.highlight-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.item-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: #666;
+    text-transform: uppercase;
+}
+
+.item-val {
+    font-size: 0.95rem;
+    color: #ddd;
+}
+
+/* Section Grids (Card Layouts) */
+.slide-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.grid-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 32px;
+    border-radius: 4px;
+}
+
+.grid-card h3 {
+    margin: 0 0 12px 0;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #fff;
+}
+
+.grid-card p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #a0a0a0;
+}
+
+/* Task Step Cards */
+.task-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.task-step-card {
+    display: flex;
+    gap: 24px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 24px;
+    align-items: flex-start;
+}
+
+.step-num {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #555;
+}
+
+.task-step-card h4 {
+    margin: 0 0 6px 0;
+    color: #fff;
+    font-weight: 400;
+}
+
+.task-step-card p {
+    margin: 0;
+    color: #999;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Asset Frames */
+.slide-visual-frame {
+    margin-top: 24px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.slide-image {
+    max-height: 140px;
+    object-fit: contain;
+    filter: drop-shadow(0px 10px 20px rgba(0,0,0,0.5));
+}
+
+/* Bottom Scroll Prompts */
+.scroll-indicator {
+    position: absolute;
+    bottom: 32px;
+    left: 40px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    color: #555;
+}
