@@ -142,40 +142,47 @@ body {
    ========================================================================== */
 .editorial-column-grid {
     height: 100vh;
-    overflow-y: auto;
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Set to 4 columns for your projects */
+    /* Force 4 equal-width columns across the available width */
+    grid-template-columns: repeat(4, 1fr); 
     background-color: #ffffff;
-    gap: 0px;
+    gap: 0;
+    width: 100%;
 }
 
+/* Link wrapper ensuring full column height & width distribution */
 a.lane-column-link {
     text-decoration: none;
     color: inherit;
-    display: block;
+    display: flex;
+    flex-direction: column;
     height: 100%;
+    min-width: 0; /* Prevents text overflow from stretching individual columns */
 }
 
 a.lane-column-link:hover .lane-column {
     background-color: #eae8e2;
 }
 
+/* Vertical column lanes with separation lines */
 .lane-column {
     background-color: #f4f3ef; 
     border-right: 1px solid #1a1a1a;
     display: flex;
     flex-direction: column;
-    padding: 2.5rem 1.2rem;
+    padding: 2.5rem 1.25rem;
     position: relative;
     height: 100%;
-    overflow-y: auto;
+    box-sizing: border-box;
+    overflow: hidden; /* Replaced overflow-y: auto to prevent uneven vertical scrollbars */
     transition: background-color 0.2s ease;
 }
 
-.lane-column:last-child {
+.lane-column-link:last-child .lane-column {
     border-right: none;
 }
 
+/* Header style with small metadata title and large category numeral */
 .lane-header {
     display: flex;
     justify-content: space-between;
@@ -191,8 +198,14 @@ a.lane-column-link:hover .lane-column {
     text-transform: uppercase;
     letter-spacing: 0.05em;
     color: #1a1a1a;
+    /* Truncate meta title gracefully if column is tight */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 75%;
 }
 
+/* Bold numeric marker */
 .lane-num {
     font-family: 'Arial Black', -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 3.5rem;
@@ -201,12 +214,15 @@ a.lane-column-link:hover .lane-column {
     color: #1a1a1a;
 }
 
+/* Content layout for indexing inside columns */
 .lane-content {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    justify-content: space-between; /* Evenly space table of contents rows & graphics */
 }
 
+/* Row wrapper mimicking Table of Contents items */
 .index-row {
     display: flex;
     align-items: flex-end;
@@ -214,6 +230,7 @@ a.lane-column-link:hover .lane-column {
     font-size: 0.8rem;
     font-weight: 600;
     color: #1a1a1a;
+    min-width: 0;
 }
 
 .index-title {
@@ -236,33 +253,6 @@ a.lane-column-link:hover .lane-column {
     font-size: 0.8rem;
     font-weight: 700;
 }
-
-/* Floating Assets */
-.floating-asset-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2.5rem 0;
-    pointer-events: none;
-}
-
-.floating-asset {
-    max-width: 85%;
-    height: auto;
-    max-height: 140px;
-    object-fit: contain;
-    filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.06));
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.lane-column:hover .floating-asset {
-    transform: scale(1.08) rotate(2deg);
-}
-
-.yellow-stick { transform: rotate(-15deg); }
-.keys-set { transform: rotate(5deg); }
-
 /* ==========================================================================
    4. PROJECT DETAIL SLIDE LAYOUT (DARK THEME - PRANAYAMA.HTML)
    ========================================================================== */
