@@ -33,7 +33,7 @@ body {
     background-color: #f4f3ef;
 }
 
-/* Intro Screen */
+/* Intro Screen Section */
 .intro-screen-section {
     width: 100vw;
     height: 100vh;
@@ -131,9 +131,11 @@ body {
     color: #8c8c8c;
     font-size: 0.95rem;
     font-weight: 600;
+    transition: color 0.15s ease;
 }
 
-.categories a.active, .categories a:hover {
+.categories a.active, 
+.categories a:hover {
     color: #000000;
 }
 
@@ -143,28 +145,25 @@ body {
 .editorial-column-grid {
     height: 100vh;
     display: grid;
-    /* Force 4 equal-width columns across the available width */
     grid-template-columns: repeat(4, 1fr); 
     background-color: #ffffff;
     gap: 0;
     width: 100%;
 }
 
-/* Link wrapper ensuring full column height & width distribution */
 a.lane-column-link {
     text-decoration: none;
     color: inherit;
     display: flex;
     flex-direction: column;
     height: 100%;
-    min-width: 0; /* Prevents text overflow from stretching individual columns */
+    min-width: 0;
 }
 
 a.lane-column-link:hover .lane-column {
     background-color: #eae8e2;
 }
 
-/* Vertical column lanes with separation lines */
 .lane-column {
     background-color: #f4f3ef; 
     border-right: 1px solid #1a1a1a;
@@ -174,15 +173,15 @@ a.lane-column-link:hover .lane-column {
     position: relative;
     height: 100%;
     box-sizing: border-box;
-    overflow: hidden; /* Replaced overflow-y: auto to prevent uneven vertical scrollbars */
+    overflow: hidden;
     transition: background-color 0.2s ease;
 }
 
-.lane-column-link:last-child .lane-column {
+.lane-column-link:last-child .lane-column,
+.lane-column:last-child {
     border-right: none;
 }
 
-/* Header style with small metadata title and large category numeral */
 .lane-header {
     display: flex;
     justify-content: space-between;
@@ -198,14 +197,12 @@ a.lane-column-link:hover .lane-column {
     text-transform: uppercase;
     letter-spacing: 0.05em;
     color: #1a1a1a;
-    /* Truncate meta title gracefully if column is tight */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 75%;
 }
 
-/* Bold numeric marker */
 .lane-num {
     font-family: 'Arial Black', -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 3.5rem;
@@ -214,15 +211,13 @@ a.lane-column-link:hover .lane-column {
     color: #1a1a1a;
 }
 
-/* Content layout for indexing inside columns */
 .lane-content {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    justify-content: space-between; /* Evenly space table of contents rows & graphics */
+    justify-content: space-between;
 }
 
-/* Row wrapper mimicking Table of Contents items */
 .index-row {
     display: flex;
     align-items: flex-end;
@@ -231,6 +226,7 @@ a.lane-column-link:hover .lane-column {
     font-weight: 600;
     color: #1a1a1a;
     min-width: 0;
+    text-decoration: none;
 }
 
 .index-title {
@@ -253,479 +249,7 @@ a.lane-column-link:hover .lane-column {
     font-size: 0.8rem;
     font-weight: 700;
 }
-/* ==========================================================================
-   4. PROJECT DETAIL SLIDE LAYOUT (DARK THEME - PRANAYAMA.HTML)
-   ========================================================================== */
-body.project-slide-body {
-    margin: 0;
-    padding: 0;
-    background-color: #0d0d0d;
-    color: #e6e6e6;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    overflow: hidden;
-}
 
-.editorial-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 24px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 100;
-    box-sizing: border-box;
-    background: linear-gradient(to bottom, rgba(13,13,13,0.95), rgba(13,13,13,0));
-    pointer-events: none;
-}
-
-.editorial-nav a, 
-.editorial-nav div {
-    pointer-events: auto;
-}
-
-.back-link {
-    color: #a0a0a0;
-    text-decoration: none;
-    font-size: 0.85rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    transition: color 0.2s ease;
-}
-
-.back-link:hover {
-    color: #ffffff;
-}
-
-.project-meta-nav {
-    display: flex;
-    gap: 20px;
-    font-size: 0.8rem;
-    letter-spacing: 0.12em;
-    color: #707070;
-}
-
-.slide-scroll-container {
-    height: 100vh;
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory;
-    scroll-behavior: smooth;
-}
-
-.slide-section {
-    height: 100vh;
-    width: 100%;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 80px 40px 40px;
-    box-sizing: border-box;
-    position: relative;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.slide-content {
-    max-width: 900px;
-    width: 100%;
-}
-
-.slide-meta {
-    display: block;
-    font-size: 0.8rem;
-    letter-spacing: 0.2em;
-    color: #888;
-    margin-bottom: 16px;
-}
-
-.slide-title {
-    font-size: 3.2rem;
-    font-weight: 300;
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-    margin: 0 0 24px 0;
-    color: #ffffff;
-}
-
-.slide-heading {
-    font-size: 2.2rem;
-    font-weight: 300;
-    margin: 0 0 24px 0;
-    color: #ffffff;
-}
-
-.slide-lead {
-    font-size: 1.25rem;
-    line-height: 1.6;
-    color: #b0b0b0;
-    font-weight: 300;
-    max-width: 750px;
-    margin: 0 0 32px 0;
-}
-
-.overview-highlights {
-    display: flex;
-    gap: 40px;
-    margin-top: 40px;
-    padding-top: 24px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.highlight-item {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.item-label {
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
-    color: #666;
-    text-transform: uppercase;
-}
-
-.item-val {
-    font-size: 0.95rem;
-    color: #ddd;
-}
-
-.slide-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    margin-top: 24px;
-}
-
-.grid-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 32px;
-    border-radius: 4px;
-}
-
-.grid-card h3 {
-    margin: 0 0 12px 0;
-    font-size: 1.1rem;
-    font-weight: 400;
-    color: #fff;
-}
-
-.grid-card p {
-    margin: 0;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: #a0a0a0;
-}
-
-.task-steps {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-top: 24px;
-}
-
-.task-step-card {
-    display: flex;
-    gap: 24px;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    padding: 24px;
-    align-items: flex-start;
-}
-
-.step-num {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #555;
-}
-
-.task-step-card h4 {
-    margin: 0 0 6px 0;
-    color: #fff;
-    font-weight: 400;
-}
-
-.task-step-card p {
-    margin: 0;
-    color: #999;
-    font-size: 0.95rem;
-    line-height: 1.5;
-}
-
-.slide-visual-frame {
-    margin-top: 24px;
-    height: 180px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.01);
-    border: 1px dashed rgba(255, 255, 255, 0.1);
-}
-
-.slide-image {
-    max-height: 140px;
-    object-fit: contain;
-    filter: drop-shadow(0px 10px 20px rgba(0,0,0,0.5));
-}
-
-.scroll-indicator {
-    position: absolute;
-    bottom: 32px;
-    left: 40px;
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
-    color: #555;
-}
-
-/* ==========================================================================
-   5. RESPONSIVE CONTROLS
-   ========================================================================== */
-@media (max-width: 900px) {
-    .editorial-column-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .slide-grid {
-        grid-template-columns: 1fr;
-    }
-    .intro-title {
-        font-size: 2.5rem;
-    }
-}
-
-@media (max-width: 600px) {
-    .grid-layout-body {
-        overflow: auto;
-        height: auto;
-    }
-    .homepage-scroll-container {
-        scroll-snap-type: none;
-        height: auto;
-        overflow-y: visible;
-    }
-    .intro-screen-section {
-        height: auto;
-        padding: 5rem 1.5rem;
-    }
-    .archive-container {
-        grid-template-columns: 1fr;
-        height: auto;
-    }
-    .sidebar {
-        height: auto;
-        border-right: none;
-        border-bottom: 1px solid #000000;
-    }
-    .editorial-column-grid {
-        height: auto;
-        grid-template-columns: 1fr;
-    }
-}/* Fullscreen Intro Screen Styling */
-.intro-screen-section {
-    width: 100vw;
-    height: 100vh;
-    scroll-snap-align: start;
-    display: flex;
-    align-items: center;
-    padding: 0 10%;
-    background-color: #ffffff;
-    border-bottom: 1px solid #000000;
-    position: relative;
-}
-
-.intro-content {
-    max-width: 800px;
-}
-
-.intro-meta {
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    color: #8c8c8c;
-    margin-bottom: 1.5rem;
-}
-
-.intro-title {
-    font-size: 3.5rem;
-    line-height: 1.1;
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    margin-bottom: 1.5rem;
-}
-
-.intro-subtitle {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    color: #555555;
-    max-width: 600px;
-    margin-bottom: 4rem;
-}
-
-/* Interactive down arrow hint */
-.scroll-prompt {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    color: #000000;
-}
-
-.arrow-down {
-    font-size: 1.1rem;
-    animation: bounce 1.8s infinite;
-}
-
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(6px); }
-}
-
-/* Interactive Grid Section Wrapper */
-.archive-container {
-    display: grid;
-    grid-template-columns: 240px 1fr;
-    height: 100vh;
-    width: 100vw;
-    scroll-snap-align: start;
-}
-
-/* Fixed Sidebar */
-.sidebar {
-    height: 100vh;
-    padding: 2.5rem 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    border-right: 1px solid #000000;
-    background-color: #ffffff;
-}
-
-.brand-title h2 {
-    font-size: 1.5rem;
-    line-height: 1.1;
-    font-weight: 800;
-    letter-spacing: -0.03em;
-}
-
-.categories {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-}
-
-.categories a {
-    text-decoration: none;
-    color: #8c8c8c;
-    font-size: 0.95rem;
-    font-weight: 600;
-}
-
-.categories a.active, .categories a:hover {
-    color: #000000;
-}
-
-/* ==========================================================================
-   3. EDITORIAL COLUMN TOC GRID (INDEX.HTML)
-   ========================================================================== */
-.editorial-column-grid {
-    height: 100vh;
-    overflow-y: auto;
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    background-color: #ffffff;
-    gap: 0px;
-}
-
-/* Vertical column lanes with separation lines */
-.lane-column {
-    background-color: #f4f3ef; 
-    border-right: 1px solid #1a1a1a;
-    display: flex;
-    flex-direction: column;
-    padding: 2.5rem 1.2rem;
-    position: relative;
-    height: 100%;
-    overflow-y: auto;
-}
-
-.lane-column:last-child {
-    border-right: none;
-}
-
-/* Header style with small metadata title and large category numeral */
-.lane-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    border-bottom: 1.5px solid #1a1a1a;
-    padding-bottom: 1.5rem;
-    margin-bottom: 2rem;
-}
-
-.lane-title-meta {
-    font-size: 0.7rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: #1a1a1a;
-}
-
-/* Bold numeric marker */
-.lane-num {
-    font-family: 'Arial Black', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 3.5rem;
-    font-weight: 900;
-    line-height: 0.8;
-    color: #1a1a1a;
-}
-
-/* Content layout for indexing inside columns */
-.lane-content {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
-
-/* Row wrapper mimicking Table of Contents items */
-.index-row {
-    display: flex;
-    align-items: flex-end;
-    margin-bottom: 0.8rem;
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: #1a1a1a;
-    text-decoration: none;
-}
-
-.index-title {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    padding-right: 4px;
-}
-
-/* Dot leader effect dynamically filling remaining row spaces */
-.index-dots {
-    flex-grow: 1;
-    border-bottom: 1px dotted #1a1a1a;
-    margin-bottom: 3px;
-    opacity: 0.6;
-}
-
-.index-number {
-    padding-left: 4px;
-    font-family: monospace;
-    font-size: 0.8rem;
-    font-weight: 700;
-}
-
-/* Link modifications */
 .primary-link {
     cursor: pointer;
     transition: color 0.15s ease;
@@ -739,14 +263,14 @@ body.project-slide-body {
     border-bottom: 1px dotted #8c8c8c;
 }
 
-/* Floating graphical assets configuration */
+/* Floating Graphical Assets */
 .floating-asset-container {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 2.5rem 0;
-    pointer-events: none; /* Allows click-through interaction on the column layers */
+    pointer-events: none;
 }
 
 .floating-asset {
@@ -758,27 +282,27 @@ body.project-slide-body {
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Hovering animations matching the print specimens */
 .lane-column:hover .floating-asset {
     transform: scale(1.08) rotate(2deg);
 }
 
-/* Special rotations for specific assets to mimic the book design layout */
 .yellow-stick {
     transform: rotate(-15deg);
 }
+
 .keys-set {
     transform: rotate(5deg);
 }
+
 .scissors-tool {
     max-height: 180px;
 }
 
 /* ==========================================================================
-   4. EDITORIAL VIEWPORTS & VERTICAL SNAP (PROJECT.HTML)
+   4. EDITORIAL VIEWPORTS & VERTICAL SNAP (PROJECT.HTML - LIGHT THEME)
    ========================================================================== */
 .editorial-theme {
-    background-color: #f4f3ef; /* Warm paper-cream background */
+    background-color: #f4f3ef;
     color: #1a1a1a;
 }
 
@@ -799,7 +323,7 @@ body.project-slide-body {
     border-bottom: 1px solid #1a1a1a;
 }
 
-/* Fixed Navigation Header */
+/* Editorial Navigation Header */
 .editorial-nav {
     position: fixed;
     top: 0;
@@ -828,7 +352,6 @@ body.project-slide-body {
     gap: 2rem;
 }
 
-/* Editorial Typography Rules */
 .section-meta {
     font-size: 0.75rem;
     font-weight: 700;
@@ -855,11 +378,7 @@ body.project-slide-body {
     text-align: justify;
 }
 
-/* ==========================================================================
-   5. DETAIL PAGE SECTION STYLES (PROJECT.HTML)
-   ========================================================================== */
-
-/* PAGE 1: INTRODUCTION */
+/* Detail Intro Section */
 .detail-intro-section {
     padding: 100px 3rem 4rem 3rem;
 }
@@ -898,7 +417,7 @@ body.project-slide-body {
     object-fit: contain;
 }
 
-/* PAGE 2: OBJECTIVES BRANCHING */
+/* Detail Objectives Section */
 .detail-objectives-section {
     padding: 6rem 3rem;
     display: flex;
@@ -933,10 +452,10 @@ body.project-slide-body {
     padding-top: 0.2rem;
 }
 
-/* PAGE 3: METHODS & SETUP GALLERY BELOW */
+/* Detail Methods Section */
 .detail-methods-section {
     padding: 6rem 3rem;
-    height: auto !important; /* Content stacks below naturally */
+    height: auto !important;
     min-height: 100vh;
 }
 
@@ -974,7 +493,7 @@ body.project-slide-body {
     color: #666460;
 }
 
-/* PAGE 4: RESULTS & EXTERNAL CODES */
+/* Detail Results Section */
 .detail-results-section {
     padding: 6rem 3rem;
 }
@@ -1028,95 +547,18 @@ body.project-slide-body {
 }
 
 /* ==========================================================================
-   6. RESPONSIVE MEDIA CONTROLS
+   5. PROJECT DETAIL SLIDE LAYOUT (DARK THEME - PRANAYAMA.HTML)
    ========================================================================== */
-@media (max-width: 1400px) {
-    .editorial-column-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    .lane-column {
-        border-bottom: 1px solid #1a1a1a;
-    }
-}
-
-@media (max-width: 900px) {
-    .intro-title {
-        font-size: 2.5rem;
-    }
-    .editorial-layout, .branch-container, .results-wrapper {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-    }
-    .visual-column {
-        border-left: none;
-        padding-left: 0;
-    }
-    .branch-leaf {
-        grid-template-columns: 1fr;
-        gap: 0.5rem;
-    }
-    .methods-gallery {
-        grid-template-columns: 1fr;
-    }
-    .detail-intro-section {
-        padding-top: 80px;
-    }
-}
-
-@media (max-width: 850px) {
-    .editorial-column-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 600px) {
-    .grid-layout-body {
-        overflow: auto;
-        height: auto;
-    }
-    .homepage-scroll-container {
-        scroll-snap-type: none;
-        height: auto;
-        overflow-y: visible;
-    }
-    .intro-screen-section {
-        height: auto;
-        padding: 5rem 1.5rem;
-    }
-    .archive-container {
-        grid-template-columns: 1fr;
-        height: auto;
-    }
-    .sidebar {
-        height: auto;
-        border-right: none;
-        border-bottom: 1px solid #000000;
-    }
-    .editorial-column-grid {
-        height: auto;
-        grid-template-columns: 1fr;
-    }
-    .lane-column {
-        border-right: none;
-    }
-}
-
-/* ==========================================================================
-   PROJECT DETAIL PAGE (SNAP SCROLL LAYOUT)
-   ========================================================================== */
-
-/* Body setup for full-viewport snapping */
 body.project-slide-body {
     margin: 0;
     padding: 0;
     background-color: #0d0d0d;
     color: #e6e6e6;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    overflow: hidden; /* Lock natural body scroll so container handles snapping */
+    overflow: hidden;
 }
 
-/* Fixed Navigation Header */
-.editorial-nav {
+body.project-slide-body .editorial-nav {
     position: fixed;
     top: 0;
     left: 0;
@@ -1128,11 +570,13 @@ body.project-slide-body {
     z-index: 100;
     box-sizing: border-box;
     background: linear-gradient(to bottom, rgba(13,13,13,0.95), rgba(13,13,13,0));
-    pointer-events: none; /* Let scroll pass through */
+    pointer-events: none;
+    border-bottom: none;
+    height: auto;
 }
 
-.editorial-nav a, 
-.editorial-nav div {
+body.project-slide-body .editorial-nav a, 
+body.project-slide-body .editorial-nav div {
     pointer-events: auto;
 }
 
@@ -1157,7 +601,6 @@ body.project-slide-body {
     color: #707070;
 }
 
-/* Fullscreen Scroll Container */
 .slide-scroll-container {
     height: 100vh;
     overflow-y: scroll;
@@ -1165,7 +608,6 @@ body.project-slide-body {
     scroll-behavior: smooth;
 }
 
-/* Fullscreen Slide Sections */
 .slide-section {
     height: 100vh;
     width: 100%;
@@ -1185,7 +627,6 @@ body.project-slide-body {
     width: 100%;
 }
 
-/* Meta Labels & Headers */
 .slide-meta {
     display: block;
     font-size: 0.8rem;
@@ -1219,7 +660,6 @@ body.project-slide-body {
     margin: 0 0 32px 0;
 }
 
-/* Section 1 Highlights */
 .overview-highlights {
     display: flex;
     gap: 40px;
@@ -1246,7 +686,6 @@ body.project-slide-body {
     color: #ddd;
 }
 
-/* Section Grids (Card Layouts) */
 .slide-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1275,7 +714,6 @@ body.project-slide-body {
     color: #a0a0a0;
 }
 
-/* Task Step Cards */
 .task-steps {
     display: flex;
     flex-direction: column;
@@ -1311,7 +749,6 @@ body.project-slide-body {
     line-height: 1.5;
 }
 
-/* Asset Frames */
 .slide-visual-frame {
     margin-top: 24px;
     height: 180px;
@@ -1328,7 +765,6 @@ body.project-slide-body {
     filter: drop-shadow(0px 10px 20px rgba(0,0,0,0.5));
 }
 
-/* Bottom Scroll Prompts */
 .scroll-indicator {
     position: absolute;
     bottom: 32px;
@@ -1339,4 +775,80 @@ body.project-slide-body {
     font-size: 0.75rem;
     letter-spacing: 0.15em;
     color: #555;
+}
+
+/* ==========================================================================
+   6. RESPONSIVE CONTROLS & MEDIA QUERIES
+   ========================================================================== */
+@media (max-width: 1400px) {
+    .editorial-column-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .lane-column {
+        border-bottom: 1px solid #1a1a1a;
+    }
+}
+
+@media (max-width: 900px) {
+    .editorial-column-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .slide-grid {
+        grid-template-columns: 1fr;
+    }
+    .intro-title {
+        font-size: 2.5rem;
+    }
+    .editorial-layout, 
+    .branch-container, 
+    .results-wrapper {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+    .visual-column {
+        border-left: none;
+        padding-left: 0;
+    }
+    .branch-leaf {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+    .methods-gallery {
+        grid-template-columns: 1fr;
+    }
+    .detail-intro-section {
+        padding-top: 80px;
+    }
+}
+
+@media (max-width: 600px) {
+    .grid-layout-body {
+        overflow: auto;
+        height: auto;
+    }
+    .homepage-scroll-container {
+        scroll-snap-type: none;
+        height: auto;
+        overflow-y: visible;
+    }
+    .intro-screen-section {
+        height: auto;
+        padding: 5rem 1.5rem;
+    }
+    .archive-container {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    .sidebar {
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid #000000;
+    }
+    .editorial-column-grid {
+        height: auto;
+        grid-template-columns: 1fr;
+    }
+    .lane-column {
+        border-right: none;
+    }
 }
