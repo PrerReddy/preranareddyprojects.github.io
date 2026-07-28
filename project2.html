@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decision RL</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="project-slide-body">
+
+    <!-- Fixed Editorial Top Nav -->
+    <header class="editorial-nav">
+        <a href="index.html" class="back-link">← BACK TO ARCHIVE</a>
+        <div class="project-meta-nav">
+            <span class="nav-number">PROJECT: 01</span>
+            <span class="nav-category">Decision RL</span>
+        </div>
+    </header>
+
+    <!-- FULLSCREEN SNAP SCROLL CONTAINER -->
+    <main class="slide-scroll-container">
+
+        <!-- SECTION 01: OVERVIEW -->
+        <section class="slide-section" id="overview">
+            <div class="slide-content">
+                <span class="slide-meta">01 / OVERVIEW</span>
+                <h1 class="slide-title">Socian & Affective Decision Making</h1>
+                <p class="slide-lead">
+                    Investigating cortical oscillations, autonomic state shifts, and fronto-parietal phase synchronization during controlled yogic breath regulation.
+                </p>
+                <div class="overview-highlights">
+                    <div class="highlight-item">
+                        <span class="item-label">Focus Area</span>
+                        <span class="item-val">Valance & RL</span>
+                    </div>
+                    <div class="highlight-item">
+                        <span class="item-label">Primary Modality</span>
+                        <span class="item-val">High-Density EEG + Respiratory Belt Transducers</span>
+                    </div>
+                </div>
+                <div class="scroll-indicator">
+                    <span>SCROLL DOWN FOR Lit Review</span>
+                    <span class="arrow">↓</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 02: SET UP -->
+        <section class="slide-section" id="setup">
+            <div class="slide-content">
+                <span class="slide-meta">02 / Rationale</span>
+                <h2 class="slide-heading">Valence-Modulated Learning and Decision Parameters and Effects of Acetaminophen</h2>
+                <div class="slide-grid">
+                    <div class="grid-card">
+                        <h3>Valance & RL</h3>
+                        <p>Human reinforcement learning is often valence-sensitive: people learn differently from positive (“good”) versus negative (“bad”) feedback. Computational models frequently allow asymmetric learning rates, η+ vs. η−, for positive and negative prediction errors. A common “positivity bias” (i.e., η+ >η−) reflects greater updating from gains than from losses, whereas in some contexts (e.g. adolescence) a “negativity bias” emerges (Lin & Palminteri, 2020; Palminteri et al., 2015). Meta-analytic evidence indicates that adults generally learn wins more rapidly than losses, even under symmetric contingencies (Lin & Palminteri, 2020). In reinforcement learning drift-diffusion models (RL-DDM), such asymmetries are parameterized directly. For example, Pedersen et al. (2017) fit separate η+ and η− parameters and showed that biases in updating alter choice dynamics: higher η+ accelerates approach learning, whereas higher η− amplifies avoidance (Pedersen et al., 2017). Our pilot data, showing a decreased learning rate for valenced feedback blocks in general, suggest that emotional feedback, regardless of valence direction slows value updating, consistent with models in which emotional contexts modulate learning rate (Fontanesi et al., 2019; Pezzulo et al., 2015). Contextual valence also influences decision policy parameters. Contrary to many studies reporting increased caution under punishing feedback, our pilot observed a decrease in 1 decision threshold (i.e., faster, less cautious responding) in valenced (experimental) versus neutral (control) blocks. This suggests that emotional feedback may sometimes expedite decisions, possibly reflecting heightened arousal or approach tendencies in an emotionally salient context. Finally, prior (starting-point) bias in the DDM can reflect valence-induced expectancy. Fox et al. (2018) observed that desired outcomes shift the starting point toward the corresponding boundary (e.g. z > 0.5 for “good” outcomes), facilitating decisions congruent with motivational valence. Our pilot’s increase in prior bias for negatively valenced symbols suggests an avoidance or pessimistic expectancy, paralleling these motivational bias effect.</p>
+                    </div>
+                    <div class="grid-card">
+                        <h3>Hierarchical Bayesian RL-DDM Frameworks</h3>
+                        <p>Hierarchical Bayesian modeling via tools like JAGS or Stan allows simultaneous estimation of individual and group-level RL-DDM parameters, improving recovery and inference (Wiecki et al., 2013). Studies such as Pedersen et al. (2017) and Fontanesi et al. (2019) have employed hierarchical MCMC to compare models with versus without valence-dependent parameters, using credible intervals to assess which valence effects are statistically robust.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+       <section class="slide-section" id="task">
+            <div class="slide-content">
+                <span class="slide-meta">02 / Rationale</span>
+                <h2 class="slide-heading">Acetaminophen and Affective Processing</h2>
+                <p class="slide-lead">
+                    Although widely used as an analgesic, acetaminophen (paracetamol) also blunts emotional reactivity. Single-dose studies report reduced self-reported and neural responses to social pain, lower late positive potentials (LPP) to emotional images, and diminished empathic distress (Randles et al., 2016). These effects extend to both negative and positive stimuli, suggesting a broad inhibition of evaluative processing (Randles et al., 2016).
+                </p>
+
+               </section>
+
+       <section class="slide-section" id="task">
+            <div class="slide-content">
+                <span class="slide-meta">02 / Rationale</span>
+                <h2 class="slide-heading">Acetaminophen and Learning</h2>
+                <p class="slide-lead">
+                    ABeyond affect, acetaminophen can alter learning. Pearson et al. (2018) demonstrated that 1000 mg acetaminophen enhanced reflective (rule-based) learning rates and efficiency in categorization tasks, while modestly impairing reflexive learning. In cognitive control paradigms, acetaminophen reduced error-related positivity (Pe) amplitudes in EEG, indicating dampened conscious error evaluation (Randles et al., 2016). However, some null findings (e.g. no effect on feedback ERPs in probabilistic learning) suggest dosage or task differences may moderate these effects.
+                </p>
+
+               </section>
+
+       <section class="slide-section" id="task">
+            <div class="slide-content">
+                <span class="slide-meta">03 / Pilot</span>
+                <h2 class="slide-heading">Integrating Pilot Findings with the Literature</h2>
+                <p class="slide-lead">
+                    Our pilot’s pattern decreased learning rate across valence blocks, increased avoidance bias (starting-point shift), and decreased decision threshold under emotional feedback aligns with and extends established valence effects in RL-DDM (Lin & Palminteri, 2020; Fontanesi et al., 2019; Fox et al., 2018). Importantly, the threshold decrease suggests that emotional contexts can also hasten decision processes, highlighting a potential arousal-driven mechanism alongside cautionary effects documented elsewhere. A key novelty is applying acetaminophen within this RL-DDM paradigm. If acetaminophen’s affect-blunting reduces valence sensitivity, one might observe:  </p>
+
+  <p> • A normalization of learning rate in valence blocks toward control-block levels. </p>
+
+  <p> • A decrease in valence-specific prior bias. </p>
+
+<p> Attenuation or reversal of the threshold decrease seen under emotional feedback.
+Alternatively, if acetaminophen predominantly enhances deliberative processing (Pearson et al., 2018), global increases in threshold or learning rate might emerge. To our knowledge, no prior study has combined RL-DDM analysis of probabilistic valence learning with acetaminophen manipulation.
+
+</p>
+ <h2 class="slide-heading">INovel Contributions and Gaps</h2>
+                <p class="slide-lead">
+                   This study uniquely integrates: 1. A hierarchical RL-DDM approach to quantify how valence modulates learning rate, decision threshold, and prior bias within subjects. 2. A pharmacological manipulation (acetaminophen) to test causal effects on valence- dependent parameters. Such an experiment could elucidate neurochemical mechanisms underlying optimism/pessimism biases and advance our understanding of serotonergic modulation of reinforcement learning.
+                </p>
+              
+               </section>
+
+        <!-- SECTION 03: TASK -->
+        <section class="slide-section" id="task">
+            <div class="slide-content">
+                <span class="slide-meta">03 / TASK</span>
+                <h2 class="slide-heading">Protocol & Behavioral Paradigm</h2>
+                <p class="slide-lead">
+                    A structured block design comparing baseline rest with paced rhythmic respiration and retention cycles.
+                </p>
+                <div class="task-steps">
+                    <div class="task-step-card">
+                        <span class="step-num">01</span>
+                        <div>
+                            <h4>Resting Baseline</h4>
+                            <p>5-minute continuous recording under spontaneous breathing conditions with eyes open/closed.</p>
+                        </div>
+                    </div>
+                    <div class="task-step-card">
+                        <span class="step-num">02</span>
+                        <div>
+                            <h4>Paced Breathing Protocol</h4>
+                            <p>Controlled inhalation, retention (Kumbhaka), and exhalation phases guided by subtle visual cues.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 04: ANALYSIS -->
+        <section class="slide-section" id="analysis">
+            <div class="slide-content">
+                <span class="slide-meta">04 / ANALYSIS</span>
+                <h2 class="slide-heading">Spectral & Coherence Findings</h2>
+                <p class="slide-lead">
+                    Power spectral density (PSD) decomposition and cross-frequency coupling across breathing cycles.
+                </p>
+                <div class="slide-grid">
+                    <div class="grid-card">
+                        <h3>Theta-Alpha Synchronization</h3>
+                        <p>Marked increase in fronto-midline theta power and sustained alpha synchronization during extended retention intervals.</p>
+                    </div>
+                    <div class="grid-card">
+                        <h3>Cardio-Respiratory Coupling</h3>
+                        <p>Phase locking between low-frequency respiratory rhythms and vagally mediated HRV power bands.</p>
+                    </div>
+                </div>
+                <div class="slide-visual-frame">
+                    <img src="eeg-cap.png" alt="EEG Cap & Signal Processing Visual" class="slide-image">
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>
