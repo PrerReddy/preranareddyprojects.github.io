@@ -852,3 +852,85 @@ body.project-slide-body .editorial-nav div {
         border-right: none;
     }
 }
+
+/* Pilot Callout Component */
+.pilot-callout-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-left: 3px solid #e2e8f0;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    border-radius: 4px;
+}
+
+.callout-badge {
+    font-size: 0.75rem;
+    font-family: monospace;
+    letter-spacing: 1px;
+    color: #a1a1aa;
+    margin-bottom: 0.75rem;
+}
+
+.callout-list {
+    margin: 0;
+    padding-left: 1.2rem;
+    color: #d4d4d8;
+    line-height: 1.6;
+}
+
+.callout-list li {
+    margin-bottom: 0.5rem;
+}
+
+/* Grid & Layout Adjustments */
+.grid-2-col {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.full-width-card {
+    margin-top: 1.5rem;
+}
+
+.highlight-border-card {
+    border-color: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+/* References Section */
+.references-container {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.refs-title {
+    font-size: 1rem;
+    font-family: monospace;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #a1a1aa;
+    margin-bottom: 1rem;
+}
+
+.references-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: #a1a1aa;
+}
+
+.references-list li {
+    margin-bottom: 0.75rem;
+    padding-left: 1rem;
+    text-indent: -1rem;
+}
+
+.references-list em {
+    color: #e4e4e7;
+}
+
