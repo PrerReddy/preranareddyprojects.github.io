@@ -7,10 +7,21 @@
     box-sizing: border-box;
 }
 
+:root {
+    --bg-color: #0b0c0e;
+    --text-primary: #e4e4e7;
+    --text-secondary: #93939e;
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-accent: rgba(255, 255, 255, 0.2);
+    --font-serif: 'Newsreader', Georgia, serif;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
 body {
     background-color: #ffffff;
     color: #000000;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
 }
@@ -204,7 +215,7 @@ a.lane-column-link:hover .lane-column {
 }
 
 .lane-num {
-    font-family: 'Arial Black', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: var(--font-sans);
     font-size: 3.5rem;
     font-weight: 900;
     line-height: 0.8;
@@ -245,7 +256,7 @@ a.lane-column-link:hover .lane-column {
 
 .index-number {
     padding-left: 4px;
-    font-family: monospace;
+    font-family: var(--font-mono);
     font-size: 0.8rem;
     font-weight: 700;
 }
@@ -286,17 +297,9 @@ a.lane-column-link:hover .lane-column {
     transform: scale(1.08) rotate(2deg);
 }
 
-.yellow-stick {
-    transform: rotate(-15deg);
-}
-
-.keys-set {
-    transform: rotate(5deg);
-}
-
-.scissors-tool {
-    max-height: 180px;
-}
+.yellow-stick { transform: rotate(-15deg); }
+.keys-set { transform: rotate(5deg); }
+.scissors-tool { max-height: 180px; }
 
 /* ==========================================================================
    4. EDITORIAL VIEWPORTS & VERTICAL SNAP (PROJECT.HTML - LIGHT THEME)
@@ -350,15 +353,6 @@ a.lane-column-link:hover .lane-column {
 .nav-right {
     display: flex;
     gap: 2rem;
-}
-
-.section-meta {
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: #666460;
-    margin-bottom: 1.5rem;
 }
 
 .custom-heading {
@@ -547,14 +541,14 @@ a.lane-column-link:hover .lane-column {
 }
 
 /* ==========================================================================
-   5. PROJECT DETAIL SLIDE LAYOUT (DARK THEME - PRANAYAMA.HTML)
+   5. PROJECT DETAIL SLIDE LAYOUT (DARK THEME)
    ========================================================================== */
 body.project-slide-body {
     margin: 0;
     padding: 0;
     background-color: #0d0d0d;
     color: #e6e6e6;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: var(--font-sans);
     overflow: hidden;
 }
 
@@ -778,20 +772,8 @@ body.project-slide-body .editorial-nav div {
 }
 
 /* ==========================================================================
-   EDITORIAL RESEARCH ARCHIVE STYLES
+   6. EDITORIAL RESEARCH ARCHIVE STYLES (PROJECT 2)
    ========================================================================== */
-
-:root {
-    --bg-color: #0b0c0e;
-    --text-primary: #e4e4e7;
-    --text-secondary: #93939e;
-    --border-subtle: rgba(255, 255, 255, 0.08);
-    --border-accent: rgba(255, 255, 255, 0.2);
-    --font-serif: 'Newsreader', Georgia, serif;
-    --font-sans: 'Inter', -apple-system, sans-serif;
-    --font-mono: 'JetBrains Mono', monospace;
-}
-
 body.editorial-body {
     background-color: var(--bg-color);
     color: var(--text-primary);
@@ -843,6 +825,10 @@ body.editorial-body {
     max-width: 860px;
     margin: 0 auto;
     padding: 4rem 2rem 8rem 2rem;
+}
+
+.editorial-container.wide-container {
+    max-width: 1100px;
 }
 
 /* HERO SECTION */
@@ -910,17 +896,13 @@ body.editorial-body {
     gap: 2.5rem;
 }
 
-@media (max-width: 768px) {
-    .editorial-section {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-}
-
 .section-meta {
     font-family: var(--font-mono);
     font-size: 0.75rem;
     color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 1.5rem;
 }
 
 .section-num {
@@ -1195,12 +1177,8 @@ html, body.snap-scroll-body {
     text-transform: uppercase;
     margin-bottom: 1rem;
 }
-/* WIDE CONTAINER FOR MULTI-IMAGE GALLERY PAGES */
-.editorial-container.wide-container {
-    max-width: 1100px;
-}
 
-/* PINTEREST-INSPIRED ASSET GALLERY GRID */
+/* ASSET GALLERY GRID */
 .asset-gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -1228,13 +1206,6 @@ html, body.snap-scroll-body {
     grid-column: span 2;
 }
 
-@media (max-width: 800px) {
-    .asset-card.asset-wide {
-        grid-column: span 1;
-    }
-}
-
-/* IMAGE WRAPPER WITH OVERLAY BADGE */
 .asset-image-wrap {
     position: relative;
     width: 100%;
@@ -1275,7 +1246,6 @@ html, body.snap-scroll-body {
     backdrop-filter: blur(4px);
 }
 
-/* ASSET INFO FOOTER */
 .asset-info {
     padding: 1rem 1.25rem;
 }
@@ -1292,4 +1262,35 @@ html, body.snap-scroll-body {
     font-size: 0.82rem;
     color: var(--text-secondary);
     line-height: 1.5;
+}
+
+/* ==========================================================================
+   7. MEDIA QUERIES & RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 900px) {
+    .editorial-column-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .archive-container {
+        grid-template-columns: 180px 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .editorial-section {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .archive-container {
+        grid-template-columns: 1fr;
+    }
+    .sidebar {
+        display: none;
+    }
+    .asset-card.asset-wide {
+        grid-column: span 1;
+    }
+    .hero-title {
+        font-size: 2rem;
+    }
 }
