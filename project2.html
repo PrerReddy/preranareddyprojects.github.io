@@ -199,7 +199,174 @@
             </div>
         </section>
 
-    </article>
+  </div>
+                </section>
+                
+                <div class="page-scroll-prompt">
+                    <span>SCROLL TO SETUP</span>
+                    <span>↓</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- PAGE 2: TASK SETUP -->
+        <article class="scroll-page" id="setup">
+            <div class="editorial-container">
+                <section class="editorial-section">
+                    <div class="section-meta">
+                        <span class="section-num">02</span>
+                        <span class="section-label">EXPERIMENTAL SETUP</span>
+                    </div>
+
+                    <div class="section-body">
+                        <h2>Hardware & Apparatus Configuration</h2>
+                        <p class="section-intro">
+                            Overview of the experimental hardware environment, recording channels, and pharmacological double-blind administration protocol.
+                        </p>
+
+                        <!-- IMAGE / SCHEMATIC PLACEHOLDER -->
+                        <figure class="editorial-figure">
+                            <div class="figure-frame">
+                                <img src="eeg-cap.png" alt="Experimental Hardware Setup Diagram" class="figure-image">
+                            </div>
+                            <figcaption class="figure-caption">
+                                <strong>Figure 2.1 — Apparatus Layout:</strong> 64-channel EEG Montage paired with high-speed pupillometry and chin-rest stabilization for optimal signal acquisition.
+                            </figcaption>
+                        </figure>
+
+                        <div class="setup-spec-grid">
+                            <div class="spec-card">
+                                <h4>Double-Blind Administration</h4>
+                                <p>Participants receive either 1000 mg acetaminophen or a matched cellulose placebo 60 minutes prior to behavioral testing to allow peak serum concentration.</p>
+                            </div>
+
+                            <div class="spec-card">
+                                <h4>Electrophysiology & Eye-Tracking</h4>
+                                <p>64-channel ActiveTwo Biosemi EEG system sampled at 1024 Hz, synchronous with EyeLink 1000 Plus recording at 1000 Hz binocular resolution.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="page-scroll-prompt">
+                    <span>SCROLL TO TASK</span>
+                    <span>↓</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- PAGE 3: BEHAVIORAL TASK -->
+        <article class="scroll-page" id="task">
+            <div class="editorial-container">
+                <section class="editorial-section">
+                    <div class="section-meta">
+                        <span class="section-num">03</span>
+                        <span class="section-label">BEHAVIORAL TASK</span>
+                    </div>
+
+                    <div class="section-body">
+                        <h2>Probabilistic Choice Paradigm</h2>
+                        <p class="section-intro">
+                            Trial progression, probability structure, and valence manipulation across neutral and emotional feedback blocks.
+                        </p>
+
+                        <!-- TASK DIAGRAM PLACEHOLDER -->
+                        <figure class="editorial-figure">
+                            <div class="figure-frame">
+                                <img src="decoder-ui.png" alt="Probabilistic Task Sequence" class="figure-image">
+                            </div>
+                            <figcaption class="figure-caption">
+                                <strong>Figure 3.1 — Trial Progression:</strong> Fixation cross (500 ms) → Stimulus Selection (Max 1500 ms) → Probabilistic Feedback (750 ms).
+                            </figcaption>
+                        </figure>
+
+                        <div class="task-timeline-list">
+                            <div class="timeline-step">
+                                <span class="step-badge">STAGE 01</span>
+                                <div class="step-text">
+                                    <strong>Stimulus Pair Selection:</strong> Participants choose between abstract Japanese Hiragana characters mapped to probabilistic reward contingencies (70/30 vs 80/20).
+                                </div>
+                            </div>
+
+                            <div class="timeline-step">
+                                <span class="step-badge">STAGE 02</span>
+                                <div class="step-text">
+                                    <strong>Valence Block Modulation:</strong> Blocks alternate between Gain ($+100 pts$), Loss ($-100 pts$), and Neutral outcomes to isolate emotional valence effects on learning rates.
+                                </div>
+                            </div>
+
+                            <div class="timeline-step">
+                                <span class="step-badge">STAGE 03</span>
+                                <div class="step-text">
+                                    <strong>Reversal Phase:</strong> Reward contingencies unannouncedly invert halfway through each block to evaluate adaptive cognitive flexibility vs persistence.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="page-scroll-prompt">
+                    <span>SCROLL TO ANALYSIS</span>
+                    <span>↓</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- PAGE 4: ANALYSIS & MODELING -->
+        <article class="scroll-page" id="analysis">
+            <div class="editorial-container">
+                <section class="editorial-section">
+                    <div class="section-meta">
+                        <span class="section-num">04</span>
+                        <span class="section-label">COMPUTATIONAL ANALYSIS</span>
+                    </div>
+
+                    <div class="section-body">
+                        <h2>Hierarchical RL-DDM Fitting</h2>
+                        <p class="section-intro">
+                            Model parameters estimated simultaneously using Bayesian MCMC sampling via PyMC / HDDM.
+                        </p>
+
+                        <!-- MODEL DIAGRAM PLACEHOLDER -->
+                        <figure class="editorial-figure">
+                            <div class="figure-frame">
+                                <img src="neural-net.png" alt="Drift Diffusion Model Equations & Fitting" class="figure-image">
+                            </div>
+                            <figcaption class="figure-caption">
+                                <strong>Figure 4.1 — Bayesian Parameter Recovery:</strong> Posterior distributions for drift rate ($v$), threshold ($a$), non-decision time ($t_0$), and prior bias ($z$).
+                            </figcaption>
+                        </figure>
+
+                        <div class="editorial-callout-grid">
+                            <div class="param-card">
+                                <h4>MCMC Diagnostics</h4>
+                                <p>4 chains, 10,000 samples per chain with 2,000 burn-in. Convergence confirmed with $\hat{R} < 1.05$.</p>
+                            </div>
+
+                            <div class="param-card">
+                                <h4>Model Comparison</h4>
+                                <p>Deviance Information Criterion (DIC) and WAIC used to compare single vs. dual-learning rate models.</p>
+                            </div>
+                        </div>
+
+                        <!-- REFERENCES AT THE VERY END -->
+                        <div class="final-references-block">
+                            <h3>Key References</h3>
+                            <ol class="editorial-references">
+                                <li><strong>Fontanesi, L., et al. (2019).</strong> Decomposing context valence in RL-DDM. <em>Cog, Aff, & Beh Neurosci</em>.</li>
+                                <li><strong>Pedersen, M. L., et al. (2017).</strong> Drift diffusion choice rule in RL. <em>Psychonomic Bull & Rev</em>.</li>
+                                <li><strong>Randles, D., et al. (2016).</strong> Evaluative blunting of acetaminophen. <em>Soc Psychol Personal Sci</em>.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </article>
+
+    </main>
+
+</body>
+</html>
 
 </body>
 </html>
