@@ -209,9 +209,9 @@
             </div>
         </article>
 
-        <!-- PAGE 2: TASK SETUP -->
+       <!-- PAGE 2: EXPERIMENTAL SETUP (MULTI-IMAGE GALLERY GRID) -->
         <article class="scroll-page" id="setup">
-            <div class="editorial-container">
+            <div class="editorial-container wide-container">
                 <section class="editorial-section">
                     <div class="section-meta">
                         <span class="section-num">02</span>
@@ -219,31 +219,62 @@
                     </div>
 
                     <div class="section-body">
-                        <h2>Hardware & Apparatus Configuration</h2>
+                        <h2>Hardware Apparatus & Lab Configurations</h2>
                         <p class="section-intro">
-                            Overview of the experimental hardware environment, recording channels, and pharmacological double-blind administration protocol.
+                            High-density multi-asset gallery detailing hardware configurations, electrode montages, chin-rest stabilization, and drug administration timeline.
                         </p>
 
-                        <!-- IMAGE / SCHEMATIC PLACEHOLDER -->
-                        <figure class="editorial-figure">
-                            <div class="figure-frame">
-                                <img src="eeg-cap.png" alt="Experimental Hardware Setup Diagram" class="figure-image">
-                            </div>
-                            <figcaption class="figure-caption">
-                                <strong>Figure 2.1 — Apparatus Layout:</strong> 64-channel EEG Montage paired with high-speed pupillometry and chin-rest stabilization for optimal signal acquisition.
-                            </figcaption>
-                        </figure>
+                        <!-- PINTEREST-INSPIRED ASSET GALLERY GRID -->
+                        <div class="asset-gallery-grid">
 
-                        <div class="setup-spec-grid">
-                            <div class="spec-card">
-                                <h4>Double-Blind Administration</h4>
-                                <p>Participants receive either 1000 mg acetaminophen or a matched cellulose placebo 60 minutes prior to behavioral testing to allow peak serum concentration.</p>
+                            <!-- Asset 1: Large Featured Asset -->
+                            <div class="asset-card asset-wide">
+                                <div class="asset-image-wrap">
+                                    <span class="asset-tag">FIG 2.1 // 64-CH EEG</span>
+                                    <img src="eeg-cap.png" alt="64 Channel ActiveTwo EEG Cap Layout" class="gallery-img">
+                                </div>
+                                <div class="asset-info">
+                                    <h4>64-Channel EEG Montage</h4>
+                                    <p>ActiveTwo Biosemi system sampled at 1024 Hz with 10-20 international standard electrode positions.</p>
+                                </div>
                             </div>
 
-                            <div class="spec-card">
-                                <h4>Electrophysiology & Eye-Tracking</h4>
-                                <p>64-channel ActiveTwo Biosemi EEG system sampled at 1024 Hz, synchronous with EyeLink 1000 Plus recording at 1000 Hz binocular resolution.</p>
+                            <!-- Asset 2: Eyetracking -->
+                            <div class="asset-card">
+                                <div class="asset-image-wrap">
+                                    <span class="asset-tag">FIG 2.2 // EYE-TRACKING</span>
+                                    <img src="memory-model.png" alt="EyeLink 1000 Eye Tracking Setup" class="gallery-img">
+                                </div>
+                                <div class="asset-info">
+                                    <h4>EyeLink 1000 Plus Apparatus</h4>
+                                    <p>1000 Hz binocular pupillometry and fixation tracking paired with chin-rest stabilization.</p>
+                                </div>
                             </div>
+
+                            <!-- Asset 3: Drug Protocol -->
+                            <div class="asset-card">
+                                <div class="asset-image-wrap">
+                                    <span class="asset-tag">FIG 2.3 // PHARMACOLOGY</span>
+                                    <img src="yellow-stick.png" alt="Double-Blind Administration Protocol" class="gallery-img">
+                                </div>
+                                <div class="asset-info">
+                                    <h4>Double-Blind Dose Protocol</h4>
+                                    <p>1000 mg acetaminophen vs matched placebo capsules administered 60 minutes prior to testing.</p>
+                                </div>
+                            </div>
+
+                            <!-- Asset 4: Trigger Box / Sync -->
+                            <div class="asset-card">
+                                <div class="asset-image-wrap">
+                                    <span class="asset-tag">FIG 2.4 // TTL SYNC</span>
+                                    <img src="decoder-ui.png" alt="Hardware Synchronization Trigger Box" class="gallery-img">
+                                </div>
+                                <div class="asset-info">
+                                    <h4>Hardware TTL Triggering</h4>
+                                    <p>Sub-millisecond synchronization between psychophysics display, EEG amplifier, and eye-tracker.</p>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </section>
@@ -255,6 +286,82 @@
             </div>
         </article>
 
+        <!-- PAGE 3: TASK & PARADIGM -->
+        <article class="scroll-page" id="task">
+            <div class="editorial-container wide-container">
+                <section class="editorial-section">
+                    <div class="section-meta">
+                        <span class="section-num">03</span>
+                        <span class="section-label">TASK PARADIGM</span>
+                    </div>
+
+                    <div class="section-body">
+                        <h2>Probabilistic Choice & Stimulus Set</h2>
+
+                        <div class="asset-gallery-grid">
+                            <div class="asset-card">
+                                <div class="asset-image-wrap">
+                                    <span class="asset-tag">FIG 3.1 // STIMULUS PAIRS</span>
+                                    <img src="decoder-ui.png" alt="Abstract Hiragana Stimuli" class="gallery-img">
+                                </div>
+                                <div class="asset-info">
+                                    <h4>Abstract Hiragana Symbols</h4>
+                                    <p>Probabilistic reward contingencies (70/30 vs 80/20) mapped to novel visual items.</p>
+                                </div>
+                            </div>
+
+                            <div class="asset-card asset-wide">
+                                <div class="asset-image-wrap">
+                                    <span class="asset-tag">FIG 3.2 // TRIAL TIMELINE</span>
+                                    <img src="neural-net.png" alt="Trial Sequence Timing" class="gallery-img">
+                                </div>
+                                <div class="asset-info">
+                                    <h4>Trial Sequence & Feedback Delays</h4>
+                                    <p>Fixation cross (500 ms) → Choice Selection (1500 ms) → Probabilistic Outcome (750 ms).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="page-scroll-prompt">
+                    <span>SCROLL TO ANALYSIS</span>
+                    <span>↓</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- PAGE 4: ANALYSIS -->
+        <article class="scroll-page" id="analysis">
+            <div class="editorial-container">
+                <section class="editorial-section">
+                    <div class="section-meta">
+                        <span class="section-num">04</span>
+                        <span class="section-label">ANALYSIS</span>
+                    </div>
+
+                    <div class="section-body">
+                        <h2>Hierarchical RL-DDM Fitting</h2>
+                        
+                        <div class="asset-card">
+                            <div class="asset-image-wrap">
+                                <span class="asset-tag">FIG 4.1 // POSTERIOR DISTRIBUTIONS</span>
+                                <img src="neural-net.png" alt="MCMC Parameter Posterior Plots" class="gallery-img">
+                            </div>
+                            <div class="asset-info">
+                                <h4>MCMC Posterior Recovery</h4>
+                                <p>Hierarchical parameter estimation via PyMC / HDDM showing learning rate ($\eta$) and decision threshold ($a$) shifts.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </article>
+
+    </main>
+
+</body>
+</html>
         <!-- PAGE 3: BEHAVIORAL TASK -->
         <article class="scroll-page" id="task">
             <div class="editorial-container">
