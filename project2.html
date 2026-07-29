@@ -60,7 +60,7 @@
             <div class="section-body">
                 <h2>Valence & Reinforcement Learning</h2>
                 <p>
-                    Human reinforcement learning is inherently valence-sensitive. Standard computational paradigms represent this asymmetry by fitting separate learning rates ($\eta^+$ vs. $\eta^-$) for positive and negative prediction errors. While adult populations often exhibit a positivity bias ($\eta^+ > \eta^-$), emotional and developmental contexts frequently invert or dampen these dynamics (Lin & Palminteri, 2020).
+                  Human reinforcement learning is often valence-sensitive: people learn differently from positive (“good”) versus negative (“bad”) feedback. Computational models frequently allow asymmetric learning rates, η+ vs. η−, for positive and negative prediction errors. A common “positivity bias” (i.e., η+ >η−) reflects greater updating from gains than from losses, whereas in some contexts (e.g. adolescence) a “negativity bias” emerges (Lin & Palminteri, 2020; Palminteri et al., 2015). Meta-analytic evidence indicates that adults generally learn wins more rapidly than losses, even under symmetric contingencies (Lin & Palminteri, 2020).
                 </p>
 
                 <!-- EDITORIAL PARAMETER CALLOUTS -->
@@ -68,19 +68,19 @@
                     <div class="param-card">
                        
                         <h4>Learning Rate Asymmetry</h4>
-                        <p>Higher $\eta^+$ accelerates approach learning toward rewards; higher $\eta^-$ amplifies avoidance in punishment contexts (Pedersen et al., 2017).</p>
+                        <p>In reinforcement learning drift-diffusion models (RL-DDM), such asymmetries are parameterized directly. For example, Pedersen et al. (2017) fit separate η+ and η− parameters and showed that biases in updating alter choice dynamics: higher η+ accelerates approach learning, whereas higher η− amplifies avoidance (Pedersen et al., 2017). Our pilot data, showing a decreased learning rate for valenced feedback blocks in general, suggest that emotional feedback, regardless of valence direction slows value updating, consistent with models in which emotional contexts modulate learning rate (Fontanesi et al., 2019; Pezzulo et al., 2015). Contextual valence also influences decision policy parameters.</p>
                     </div>
 
                     <div class="param-card">
                       
                         <h4>Decision Threshold</h4>
-                        <p>Controls response caution. Lower thresholds speed up reaction times at the expense of choice accuracy.</p>
+                        <p>Contrary to many studies reporting increased caution under punishing feedback, our pilot observed a decrease in 1 decision threshold (i.e., faster, less cautious responding) in valenced (experimental) versus neutral (control) blocks. This suggests that emotional feedback may sometimes expedite decisions, possibly reflecting heightened arousal or approach tendencies in an emotionally salient context.</p>
                     </div>
 
                     <div class="param-card">
                        
                         <h4>Prior Bias</h4>
-                        <p>Shifts the starting point toward a choice boundary, reflecting expectancy driven by motivational valence (Fox et al., 2018).</p>
+                        <p> Finally, prior (starting-point) bias in the DDM can reflect valence-induced expectancy. Fox et al. (2018) observed that desired outcomes shift the starting point toward the corresponding boundary (e.g. z > 0.5 for “good” outcomes), facilitating decisions congruent with motivational valence. Our pilot’s increase in prior bias for negatively valenced symbols suggests an avoidance or pessimistic expectancy, paralleling these motivational bias effects.</p>
                     </div>
                 </div>
 
@@ -88,8 +88,13 @@
                 <blockquote class="editorial-quote">
                     <span class="quote-label">KEY PILOT FINDINGS</span>
                     <p>
-                        Our pilot data revealed three distinct parameter shifts under emotional feedback: a general decrease in learning rate ($\eta$), a lowered decision threshold ($a$, indicating faster, less cautious choices), and an increased prior avoidance bias ($z$) for negative symbols.
-                    </p>
+                        Our pilot’s pattern decreased learning rate across valence blocks, increased avoidance bias (starting-point shift), and decreased decision threshold under emotional feedback aligns with and extends established valence effects in RL-DDM (Lin & Palminteri, 2020; Fontanesi et al., 2019; Fox et al., 2018). Importantly, the threshold decrease suggests that emotional contexts can also hasten decision processes, highlighting a potential arousal-driven mechanism alongside cautionary effects documented elsewhere. A key novelty is applying acetaminophen within this RL-DDM paradigm. If acetaminophen’s affect-blunting reduces valence sensitivity, one might observe:
+                        • A normalization of learning rate in valence blocks toward control-block levels.
+                        • A decrease in valence-specific prior bias.
+                        Attenuation or reversal of the threshold decrease seen under emotional feedback.
+                        Alternatively, if acetaminophen predominantly enhances deliberative processing (Pearson et al., 2018), global increases in threshold or learning rate might emerge. To our knowledge, no prior study has combined RL-DDM analysis of probabilistic valence learning with acetaminophen manipulation.
+
+
                 </blockquote>
             </div>
         </section>
@@ -106,7 +111,7 @@
             <div class="section-body">
                 <h2>Hierarchical Bayesian RL-DDM Frameworks</h2>
                 <p>
-                    By coupling reinforcement learning with Drift-Diffusion Modeling (RL-DDM) under a Hierarchical Bayesian framework (via JAGS, Stan, or HDDM), we simultaneously estimate individual and group-level parameters. Hierarchical Markov Chain Monte Carlo (MCMC) sampling provides robust parameter recovery and allows formal comparison of models with vs. without valence-dependent parameters using 95% credible intervals (Wiecki et al., 2013; Fontanesi et al., 2019).
+                   Hierarchical Bayesian modeling via tools like JAGS or Stan allows simultaneous estimation of individual and group-level RL-DDM parameters, improving recovery and inference (Wiecki et al., 2013). Studies such as Pedersen et al. (2017) and Fontanesi et al. (2019) have employed hierarchical MCMC to compare models with versus without valence-dependent parameters, using credible intervals to assess which valence effects are statistically robust.
                 </p>
             </div>
         </section>
@@ -123,10 +128,10 @@
             <div class="section-body">
                 <h2>Acetaminophen & Affective Modulation</h2>
                 <p>
-                    Beyond its classical analgesic mechanisms, acetaminophen (paracetamol) induces broad <em>evaluative blunting</em>—reducing self-reported and neural responsiveness to both negative and positive emotional stimuli (Randles et al., 2016).
+                    Although widely used as an analgesic, acetaminophen (paracetamol) also blunts emotional reactivity. Single-dose studies report reduced self-reported and neural responses to social pain, lower late positive potentials (LPP) to emotional images, and diminished empathic distress (Randles et al., 2016). These effects extend to both negative and positive stimuli, suggesting a broad inhibition of evaluative processing (Randles et al., 2016).
                 </p>
                 <p>
-                    In cognitive tasks, acetaminophen has been shown to enhance reflective, rule-based learning while dampening error-related positivity (Pe) amplitudes in EEG (Pearson et al., 2018; Randles et al., 2016). Applying this pharmacological manipulation to an RL-DDM task provides a direct causal probe into how neurochemical blunting alters valence-driven decision parameters.
+                    Beyond affect, acetaminophen can alter learning. Pearson et al. (2018) demonstrated that 1000 mg acetaminophen enhanced reflective (rule-based) learning rates and efficiency in categorization tasks, while modestly impairing reflexive learning. In cognitive control paradigms, acetaminophen reduced error-related positivity (Pe) amplitudes in EEG, indicating dampened conscious error evaluation (Randles et al., 2016). However, some null findings (e.g. no effect on feedback ERPs in probabilistic learning) suggest dosage or task differences may moderate these effects.
                 </p>
             </div>
         </section>
@@ -163,7 +168,7 @@
                         <span class="h-num">H3</span>
                         <div class="h-content">
                             <strong>Threshold Reversal or Elevation:</strong>
-                            <p>The decrease in decision threshold ($a$) observed under emotional feedback will be attenuated—or elevated globally if acetaminophen selectively enhances deliberative caution.</p>
+                            <p>The decrease in decision threshold observed under emotional feedback will be attenuated—or elevated globally if acetaminophen selectively enhances deliberative caution.</p>
                         </div>
                     </div>
                 </div>
