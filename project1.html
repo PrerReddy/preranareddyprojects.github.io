@@ -3,118 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neural Correlates of Pranayama — Research Detail</title>
+    <title>Research Project Archive</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="project-slide-body">
+<body>
 
-    <!-- Fixed Editorial Top Nav -->
-    <header class="editorial-nav">
-        <a href="index.html" class="back-link">← BACK TO ARCHIVE</a>
-        <div class="project-meta-nav">
-            <span class="nav-number">PROJECT: 01</span>
-            <span class="nav-category">NEUROSCIENCE OF YOGIC BREATHING</span>
-        </div>
-    </header>
+    <main class="scroll-container">
 
-    <!-- FULLSCREEN SNAP SCROLL CONTAINER -->
-    <main class="slide-scroll-container">
-
-        <!-- SECTION 01: OVERVIEW -->
-        <section class="slide-section" id="overview">
-            <div class="slide-content">
-                <span class="slide-meta">01 / OVERVIEW</span>
-                <h1 class="slide-title">Neural Correlates of Pranayama</h1>
-                <p class="slide-lead">
-                    Investigating cortical oscillations, autonomic state shifts, and fronto-parietal phase synchronization during controlled yogic breath regulation.
-                </p>
-                <div class="overview-highlights">
-                    <div class="highlight-item">
-                        <span class="item-label">Focus Area</span>
-                        <span class="item-val">Respiratory Neuromodulation & Autonomic Control</span>
-                    </div>
-                    <div class="highlight-item">
-                        <span class="item-label">Primary Modality</span>
-                        <span class="item-val">High-Density EEG + Respiratory Belt Transducers</span>
-                    </div>
-                </div>
-                <div class="scroll-indicator">
-                    <span>SCROLL DOWN FOR EXPERIMENTAL SET UP</span>
-                    <span class="arrow">↓</span>
-                </div>
+        <!-- SCREEN 1: THE INTRO PAGE -->
+        <section class="viewport-page intro-page">
+            <div class="intro-content">
+                <h1>Research Project Archive</h1>
+                <p>Exploring the intersection of computational neuroscience, reinforcement learning, and human decision-making.</p>
+            </div>
+            <div class="scroll-prompt">
+                <span>Scroll to view archive</span>
+                <span class="arrow">↓</span>
             </div>
         </section>
 
-        <!-- SECTION 02: SET UP -->
-        <section class="slide-section" id="setup">
-            <div class="slide-content">
-                <span class="slide-meta">02 / SET UP</span>
-                <h2 class="slide-heading">Experimental Configuration</h2>
-                <div class="slide-grid">
-                    <div class="grid-card">
-                        <h3>64-Channel EEG Setup</h3>
-                        <p>High-density cap placement following the standard 10–20 system, targeting frontal and parietal leads to capture fronto-parietal coherence and slow-wave dynamics.</p>
-                    </div>
-                    <div class="grid-card">
-                        <h3>Biometric Sync</h3>
-                        <p>Simultaneous recording of chest wall excursion via piezoelectric respiratory transducers alongside continuous PPG for real-time heart-rate variability (HRV) alignment.</p>
-                    </div>
+        <!-- SCREEN 2: THE ARCHIVE GRID PAGE -->
+        <section class="viewport-page archive-page">
+            <aside class="sidebar">
+                <div class="brand-title">
+                    <h1>Research<br>Project<br>Archive</h1>
                 </div>
-            </div>
+                <nav class="categories">
+                    <a href="#" class="active">All</a>
+                    <a href="#">Pranayama Project</a>
+                    <a href="#">RL Drug Study</a>
+                    <a href="#">Saccades</a>
+                    <a href="#">Novelty Categorization</a>
+                </nav>
+            </aside>
+
+            <section class="project-grid">
+                <a href="https://github.com" target="_blank" class="grid-box">
+                    <img src="eeg-cap.png" alt="EEG Signal Processor" class="grid-image">
+                </a>
+                <a href="https://github.com" target="_blank" class="grid-box">
+                    <img src="neural-net.png" alt="RL Decision Engine" class="grid-image">
+                </a>
+                <a href="https://github.com" target="_blank" class="grid-box">
+                    <img src="memory-model.png" alt="Memory Model" class="grid-image">
+                </a>
+                <a href="https://github.com" target="_blank" class="grid-box">
+                    <img src="decoder-ui.png" alt="Neural Decoder" class="grid-image">
+                </a>
+                <div class="grid-box empty"></div>
+                <div class="grid-box empty"></div>
+            </section>
         </section>
 
-        <!-- SECTION 03: TASK -->
-        <section class="slide-section" id="task">
-            <div class="slide-content">
-                <span class="slide-meta">03 / TASK</span>
-                <h2 class="slide-heading">Protocol & Behavioral Paradigm</h2>
-                <p class="slide-lead">
-                    A structured block design comparing baseline rest with paced rhythmic respiration and retention cycles.
-                </p>
-                <div class="task-steps">
-                    <div class="task-step-card">
-                        <span class="step-num">01</span>
-                        <div>
-                            <h4>Resting Baseline</h4>
-                            <p>5-minute continuous recording under spontaneous breathing conditions with eyes open/closed.</p>
-                        </div>
-                    </div>
-                    <div class="task-step-card">
-                        <span class="step-num">02</span>
-                        <div>
-                            <h4>Paced Breathing Protocol</h4>
-                            <p>Controlled inhalation, retention (Kumbhaka), and exhalation phases guided by subtle visual cues.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <!-- SCREEN 3: HORIZONTAL SHOWCASE CATALOG -->
+        <section class="viewport-page showcase-page">
+            <div class="horizontal-scroll-row">
 
-        <!-- SECTION 04: ANALYSIS -->
-        <section class="slide-section" id="analysis">
-            <div class="slide-content">
-                <span class="slide-meta">04 / ANALYSIS</span>
-                <h2 class="slide-heading">Spectral & Coherence Findings</h2>
-                <p class="slide-lead">
-                    Power spectral density (PSD) decomposition and cross-frequency coupling across breathing cycles.
-                </p>
-                <div class="slide-grid">
-                    <div class="grid-card">
-                        <h3>Theta-Alpha Synchronization</h3>
-                        <p>Marked increase in fronto-midline theta power and sustained alpha synchronization during extended retention intervals.</p>
+                <!-- Showcase Item 1 -->
+                <div class="showcase-column">
+                    <div class="showcase-visual">
+                        <img src="eeg-cap.png" alt="EEG Signal Processor" class="showcase-image">
                     </div>
-                    <div class="grid-card">
-                        <h3>Cardio-Respiratory Coupling</h3>
-                        <p>Phase locking between low-frequency respiratory rhythms and vagally mediated HRV power bands.</p>
+                    <div class="showcase-meta">
+                        <div class="meta-row"><span>PROJECT</span><strong>PARANAYAMA PROJECT</strong></div>
+                        <div class="meta-row"><span>TYPE</span><strong>SIGNAL ANALYSIS / MATLAB</strong></div>
+                        <div class="meta-row"><span>STATUS</span><strong>COMPLETED</strong></div>
                     </div>
                 </div>
-                <div class="slide-visual-frame">
-                    <img src="eeg-cap.png" alt="EEG Cap & Signal Processing Visual" class="slide-image">
+
+                <!-- Showcase Item 2 -->
+                <div class="showcase-column">
+                    <div class="showcase-visual">
+                        <img src="neural-net.png" alt="RL Decision Engine" class="showcase-image">
+                    </div>
+                    <div class="showcase-meta">
+                        <div class="meta-row"><span>PROJECT</span><strong>RL DRUG STUDY</strong></div>
+                        <div class="meta-row"><span>TYPE</span><strong>REINFORCEMENT LEARNING</strong></div>
+                        <div class="meta-row"><span>STATUS</span><strong>ACTIVE</strong></div>
+                    </div>
                 </div>
+
+                <!-- Showcase Item 3 -->
+                <div class="showcase-column">
+                    <div class="showcase-visual">
+                        <img src="memory-model.png" alt="Memory Model" class="showcase-image">
+                    </div>
+                    <div class="showcase-meta">
+                        <div class="meta-row"><span>PROJECT</span><strong>SACCADES</strong></div>
+                        <div class="meta-row"><span>TYPE</span><strong>VALANCE & EYETRACKING</strong></div>
+                        <div class="meta-row"><span>STATUS</span><strong>ACTIVE</strong></div>
+                    </div>
+                </div>
+
+                <!-- Showcase Item 4 -->
+                <div class="showcase-column">
+                    <div class="showcase-visual">
+                        <img src="decoder-ui.png" alt="Neural Decoder" class="showcase-image">
+                    </div>
+                    <div class="showcase-meta">
+                        <div class="meta-row"><span>PROJECT</span><strong>NOVELTY CATEGORIZATON</strong></div>
+                        <div class="meta-row"><span>TYPE</span><strong>COGNITION & FINE ARTS</strong></div>
+                        <div class="meta-row"><span>STATUS</span><strong>UPCOMING</strong></div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
     </main>
 
+    <!-- AUTOMATIC SCROLL RADAR ENGINE -->
+    <script>
+        const container = document.querySelector('.horizontal-scroll-row');
+        
+        const checkFocus = () => {
+            const columns = document.querySelectorAll('.showcase-column');
+            const containerRect = container.getBoundingClientRect();
+            const containerCenter = containerRect.left + (containerRect.width / 2);
+
+            columns.forEach(column => {
+                const rect = column.getBoundingClientRect();
+                const columnCenter = rect.left + (rect.width / 2);
+                const distanceFromCenter = Math.abs(containerCenter - columnCenter);
+                
+                // If the column center is near the center of the viewport screen, wake it up
+                if (distanceFromCenter < rect.width * 0.5) {
+                    column.classList.add('in-center-focus');
+                } else {
+                    column.classList.remove('in-center-focus');
+                }
+            });
+        };
+
+        container.addEventListener('scroll', checkFocus);
+        window.addEventListener('resize', checkFocus);
+        
+        // Brief timeout ensuring the DOM renders before initial check
+        setTimeout(checkFocus, 300);
+    </script>
 </body>
 </html>
