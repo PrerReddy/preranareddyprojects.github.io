@@ -610,3 +610,15 @@ body {
         border-right: none;
     }
 }
+
+a.lane-column-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+}
+
+a.lane-column-link:hover .lane-column {
+    background-color: rgba(255, 255, 255, 0.02); /* Slight hover glow */
+    cursor: pointer;
+}
