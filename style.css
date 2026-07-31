@@ -16,7 +16,7 @@ body {
 }
 
 /* ==========================================================================
-   2. LANDING ARCHIVE GRID (INDEX.HTML)
+   2. SCROLL-SNAP HOMEPAGE PORTAL (INDEX.HTML)
    ========================================================================== */
 .grid-layout-body {
     overflow: hidden;
@@ -24,11 +24,85 @@ body {
     width: 100vw;
 }
 
+/* Container that allows snap scrolling on the home landing page */
+.homepage-scroll-container {
+    width: 100vw;
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    background-color: #f4f3ef; /* Matches the warm paper background */
+}
+
+/* Fullscreen Intro Screen Styling */
+.intro-screen-section {
+    width: 100vw;
+    height: 100vh;
+    scroll-snap-align: start;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    background-color: #ffffff;
+    border-bottom: 1px solid #000000;
+    position: relative;
+}
+
+.intro-content {
+    max-width: 800px;
+}
+
+.intro-meta {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: #8c8c8c;
+    margin-bottom: 1.5rem;
+}
+
+.intro-title {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+}
+
+.intro-subtitle {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #555555;
+    max-width: 600px;
+    margin-bottom: 4rem;
+}
+
+/* Interactive down arrow hint */
+.scroll-prompt {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #000000;
+}
+
+.arrow-down {
+    font-size: 1.1rem;
+    animation: bounce 1.8s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+}
+
+/* Interactive Grid Section Wrapper */
 .archive-container {
     display: grid;
     grid-template-columns: 240px 1fr;
     height: 100vh;
     width: 100vw;
+    scroll-snap-align: start;
 }
 
 /* Fixed Sidebar */
@@ -42,8 +116,8 @@ body {
     background-color: #ffffff;
 }
 
-.brand-title h1 {
-    font-size: 2rem;
+.brand-title h2 {
+    font-size: 1.5rem;
     line-height: 1.1;
     font-weight: 800;
     letter-spacing: -0.03em;
@@ -66,42 +140,152 @@ body {
     color: #000000;
 }
 
-/* Project Grid */
-.project-grid {
+/* ==========================================================================
+   3. EDITORIAL COLUMN TOC GRID (INDEX.HTML)
+   ========================================================================== */
+.editorial-column-grid {
     height: 100vh;
     overflow-y: auto;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    background-color: #000000;
-    gap: 1px;
-}
-
-.grid-box {
+    grid-template-columns: repeat(6, 1fr);
     background-color: #ffffff;
-    aspect-ratio: 1 / 1;
+    gap: 0px;
+}
+
+/* Vertical column lanes with separation lines */
+.lane-column {
+    background-color: #f4f3ef; 
+    border-right: 1px solid #1a1a1a;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    padding: 2.5rem 1.2rem;
+    position: relative;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.lane-column:last-child {
+    border-right: none;
+}
+
+/* Header style with small metadata title and large category numeral */
+.lane-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1.5px solid #1a1a1a;
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.lane-title-meta {
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #1a1a1a;
+}
+
+/* Bold numeric marker */
+.lane-num {
+    font-family: 'Arial Black', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 0.8;
+    color: #1a1a1a;
+}
+
+/* Content layout for indexing inside columns */
+.lane-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/* Row wrapper mimicking Table of Contents items */
+.index-row {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 0.8rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    text-decoration: none;
+}
+
+.index-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 4px;
+}
+
+/* Dot leader effect dynamically filling remaining row spaces */
+.index-dots {
+    flex-grow: 1;
+    border-bottom: 1px dotted #1a1a1a;
+    margin-bottom: 3px;
+    opacity: 0.6;
+}
+
+.index-number {
+    padding-left: 4px;
+    font-family: monospace;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+/* Link modifications */
+.primary-link {
+    cursor: pointer;
+    transition: color 0.15s ease;
+}
+
+.primary-link:hover {
+    color: #8c8c8c;
+}
+
+.primary-link:hover .index-dots {
+    border-bottom: 1px dotted #8c8c8c;
+}
+
+/* Floating graphical assets configuration */
+.floating-asset-container {
+    width: 100%;
+    display: flex;
     justify-content: center;
-    padding: 3.5rem;
-    transition: background-color 0.15s ease;
+    align-items: center;
+    padding: 2.5rem 0;
+    pointer-events: none; /* Allows click-through interaction on the column layers */
 }
 
-.grid-box:not(.empty):hover {
-    background-color: #f7f7f7;
-}
-
-.grid-image {
-    max-width: 100%;
-    max-height: 100%;
+.floating-asset {
+    max-width: 85%;
+    height: auto;
+    max-height: 140px;
     object-fit: contain;
+    filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.06));
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.grid-box.empty { 
-    cursor: default; 
+/* Hovering animations matching the print specimens */
+.lane-column:hover .floating-asset {
+    transform: scale(1.08) rotate(2deg);
+}
+
+/* Special rotations for specific assets to mimic the book design layout */
+.yellow-stick {
+    transform: rotate(-15deg);
+}
+.keys-set {
+    transform: rotate(5deg);
+}
+.scissors-tool {
+    max-height: 180px;
 }
 
 /* ==========================================================================
-   3. EDITORIAL VIEWPORTS & VERTICAL SNAP (PROJECT.HTML)
+   4. EDITORIAL VIEWPORTS & VERTICAL SNAP (PROJECT.HTML)
    ========================================================================== */
 .editorial-theme {
     background-color: #f4f3ef; /* Warm paper-cream background */
@@ -182,7 +366,7 @@ body {
 }
 
 /* ==========================================================================
-   4. DETAIL PAGE SECTION STYLES
+   5. DETAIL PAGE SECTION STYLES (PROJECT.HTML)
    ========================================================================== */
 
 /* PAGE 1: INTRODUCTION */
@@ -354,16 +538,21 @@ body {
 }
 
 /* ==========================================================================
-   5. RESPONSIVE MEDIA CONTROLS
+   6. RESPONSIVE MEDIA CONTROLS
    ========================================================================== */
-@media (max-width: 1100px) {
-    .project-grid {
-        grid-template-columns: repeat(2, 1fr);
+@media (max-width: 1400px) {
+    .editorial-column-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .lane-column {
+        border-bottom: 1px solid #1a1a1a;
     }
 }
 
 @media (max-width: 900px) {
-    /* Editorial pages structural collapse */
+    .intro-title {
+        font-size: 2.5rem;
+    }
     .editorial-layout, .branch-container, .results-wrapper {
         grid-template-columns: 1fr;
         gap: 2.5rem;
@@ -384,11 +573,25 @@ body {
     }
 }
 
-@media (max-width: 650px) {
-    /* Clean collapse of the main grid archive on mobile */
+@media (max-width: 850px) {
+    .editorial-column-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
     .grid-layout-body {
         overflow: auto;
         height: auto;
+    }
+    .homepage-scroll-container {
+        scroll-snap-type: none;
+        height: auto;
+        overflow-y: visible;
+    }
+    .intro-screen-section {
+        height: auto;
+        padding: 5rem 1.5rem;
     }
     .archive-container {
         grid-template-columns: 1fr;
@@ -399,8 +602,11 @@ body {
         border-right: none;
         border-bottom: 1px solid #000000;
     }
-    .project-grid {
+    .editorial-column-grid {
         height: auto;
         grid-template-columns: 1fr;
+    }
+    .lane-column {
+        border-right: none;
     }
 }
