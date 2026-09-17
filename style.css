@@ -1,6 +1,4 @@
-/* ==========================================================================
-   DIGITAL MUSEUM & FINE ART ARCHIVE STYLESHEET
-   ========================================================================== */
+/* DIGITAL MUSEUM & FINE ART ARCHIVE STYLESHEET */
 
 :root {
     --bg-color: #0d0d0e;
@@ -90,14 +88,35 @@ html, body {
     border-bottom: 1px solid var(--border-line);
 }
 
-/* INTRO / COVER ROOM */
+/* INTRO / COVER ROOM WITH FULLSCREEN IMAGE BACKGROUND */
 .intro-room {
-    background-color: var(--bg-color);
+    background-image: url('Paintings/Mys.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.intro-bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 1;
 }
 
 .curator-plaque {
+    position: relative;
+    z-index: 2;
     max-width: 700px;
     text-align: center;
+    background: rgba(13, 13, 14, 0.65);
+    backdrop-filter: blur(8px);
+    padding: 3rem 2.5rem;
+    border: 1px solid var(--border-line);
+    border-radius: 4px;
 }
 
 .plaque-label {
@@ -121,14 +140,14 @@ html, body {
 .intro-statement {
     font-size: 1.05rem;
     line-height: 1.8;
-    color: var(--text-muted);
+    color: var(--text-main);
     font-weight: 300;
 }
 
-/* ARTWORK DISPLAY GRID (75% image proportion) */
+/* ARTWORK DISPLAY GRID */
 .artwork-display {
     display: grid;
-    grid-template-columns: 3fr 1fr; /* Image takes ~75% width, placard takes ~25% */
+    grid-template-columns: 3fr 1fr;
     gap: 3vw;
     align-items: center;
     max-width: 1600px;
@@ -137,14 +156,13 @@ html, body {
 }
 
 .layout-reverse {
-    grid-template-columns: 1fr 3fr; /* Reversed for layout variety */
+    grid-template-columns: 1fr 3fr;
 }
 
 .layout-reverse .artwork-frame {
     order: 2;
 }
 
-/* ARTWORK FRAME & LARGER IMAGE SIZING */
 .artwork-frame {
     background-color: #050505;
     padding: 12px;
@@ -153,18 +171,17 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
-    max-height: 80vh; /* Expands image height to 80% of screen */
+    max-height: 80vh;
     width: 100%;
 }
 
 .artwork-frame img {
     width: 100%;
-    max-height: 76vh; /* Fills up to ~3/4th of the viewport height */
+    max-height: 76vh;
     object-fit: contain;
     display: block;
 }
 
-/* PLACARD TEXT DETAILS */
 .museum-placard {
     max-width: 360px;
 }
@@ -202,6 +219,70 @@ html, body {
     line-height: 1.7;
     color: var(--text-main);
     font-weight: 300;
+}
+
+/* CONTACT ROOM & MOVING TICKER */
+.contact-room {
+    background-color: var(--bg-color);
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 0;
+}
+
+.contact-card {
+    text-align: center;
+    margin: auto 0;
+}
+
+.contact-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+}
+
+.contact-email {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    color: var(--accent-gold);
+    text-decoration: none;
+    border: 1px solid var(--accent-gold);
+    padding: 0.8rem 1.5rem;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.contact-email:hover {
+    background-color: var(--accent-gold);
+    color: var(--bg-color);
+}
+
+.ticker-wrap {
+    width: 100vw;
+    overflow: hidden;
+    background-color: #050505;
+    border-top: 1px solid var(--border-line);
+    padding: 1rem 0;
+}
+
+.ticker-move {
+    display: flex;
+    width: max-content;
+    animation: ticker 25s linear infinite;
+}
+
+.ticker-item {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    padding: 0 3rem;
+    white-space: nowrap;
+}
+
+@keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
 /* RESPONSIVE DESIGN FOR MOBILE & TABLETS */
