@@ -1,15 +1,11 @@
-/* ==========================================================================
-   DIGITAL MUSEUM & EXHIBITION STYLESHEET
-   ========================================================================== */
-
 :root {
-    --museum-bg: #0b0b0c;
-    --museum-wall: #121214;
-    --text-primary: #e6e6ea;
-    --text-dim: #8a8a93;
+    --bg-color: #0d0d0e;
+    --panel-bg: #141416;
+    --text-main: #f0f0f3;
+    --text-muted: #8e8e96;
     --accent-gold: #c5a059;
-    --border-subtle: rgba(255, 255, 255, 0.08);
-    --font-serif: "Playfair Display", "Georgia", "Times New Roman", serif;
+    --border-line: rgba(255, 255, 255, 0.07);
+    --font-serif: "Playfair Display", "Georgia", serif;
     --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     --font-mono: "SF Mono", "Courier New", monospace;
 }
@@ -21,14 +17,14 @@
 }
 
 html, body {
-    background-color: var(--museum-bg);
-    color: var(--text-primary);
+    background-color: var(--bg-color);
+    color: var(--text-main);
     font-family: var(--font-sans);
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
 }
 
-/* FIXED NAVIGATION HEADER */
+/* HEADER NAV */
 .museum-header {
     position: fixed;
     top: 0;
@@ -39,26 +35,26 @@ html, body {
     justify-content: space-between;
     align-items: center;
     z-index: 100;
-    background: linear-gradient(to bottom, rgba(11, 11, 12, 0.95), rgba(11, 11, 12, 0));
-    pointer-events: none;
+    background: rgba(13, 13, 14, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-line);
 }
 
 .museum-brand {
     font-family: var(--font-mono);
     font-size: 0.75rem;
-    letter-spacing: 0.25em;
-    color: var(--text-dim);
-    pointer-events: auto;
+    letter-spacing: 0.2em;
+    color: var(--text-muted);
+    text-transform: uppercase;
 }
 
 .gallery-nav {
     display: flex;
-    gap: 1.25rem;
-    pointer-events: auto;
+    gap: 1.5rem;
 }
 
 .gallery-nav a {
-    color: var(--text-dim);
+    color: var(--text-muted);
     text-decoration: none;
     font-family: var(--font-mono);
     font-size: 0.75rem;
@@ -69,14 +65,13 @@ html, body {
     color: var(--accent-gold);
 }
 
-/* SNAP SCROLL CONTAINER */
+/* FULLSCREEN ROOM SECTIONS */
 .museum-viewport {
     height: 100vh;
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
 }
 
-/* EACH ROOM / FULLSCREEN SECTION */
 .museum-room {
     height: 100vh;
     width: 100vw;
@@ -86,13 +81,13 @@ html, body {
     justify-content: center;
     padding: 0 8vw;
     position: relative;
-    border-bottom: 1px solid var(--border-subtle);
-    background-color: var(--museum-wall);
+    background-color: var(--panel-bg);
+    border-bottom: 1px solid var(--border-line);
 }
 
-/* INTRO ENTRANCE ROOM */
+/* INTRO ROOM */
 .intro-room {
-    background-color: var(--museum-bg);
+    background-color: var(--bg-color);
 }
 
 .curator-plaque {
@@ -104,51 +99,34 @@ html, body {
     font-family: var(--font-mono);
     font-size: 0.75rem;
     color: var(--accent-gold);
-    letter-spacing: 0.2em;
+    letter-spacing: 0.25em;
     display: block;
     margin-bottom: 1.5rem;
 }
 
 .artist-name {
     font-family: var(--font-serif);
-    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
     font-weight: 400;
     letter-spacing: -0.02em;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
 }
 
 .intro-statement {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     line-height: 1.8;
-    color: var(--text-dim);
+    color: var(--text-muted);
     font-weight: 300;
 }
 
-.scroll-indicator {
-    margin-top: 4rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    color: var(--text-dim);
-}
-
-.line-down {
-    width: 1px;
-    height: 40px;
-    background-color: var(--accent-gold);
-}
-
-/* ARTWORK DISPLAY GRID */
+/* DISPLAY GRID */
 .artwork-display {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
-    gap: 6vw;
+    gap: 5vw;
     align-items: center;
-    max-width: 1300px;
+    max-width: 1250px;
     width: 100%;
 }
 
@@ -160,25 +138,22 @@ html, body {
     order: 2;
 }
 
-/* ARTWORK FRAME WITH SPOTLIGHT EFFECT */
 .artwork-frame {
-    position: relative;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
-    background-color: #000;
+    background-color: #050505;
     padding: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-line);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.6);
 }
 
 .artwork-frame img {
     width: 100%;
-    max-height: 65vh;
+    max-height: 62vh;
     object-fit: contain;
     display: block;
 }
 
-/* MUSEUM PLACARD SIDEBAR */
 .museum-placard {
-    max-width: 440px;
+    max-width: 420px;
 }
 
 .placard-number {
@@ -192,10 +167,9 @@ html, body {
 
 .artwork-title {
     font-family: var(--font-serif);
-    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
     font-weight: 400;
     margin-bottom: 1rem;
-    line-height: 1.1;
 }
 
 .artwork-specs {
@@ -204,8 +178,8 @@ html, body {
     gap: 0.25rem;
     font-family: var(--font-mono);
     font-size: 0.75rem;
-    color: var(--text-dim);
-    margin-bottom: 2rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
     border-left: 2px solid var(--accent-gold);
     padding-left: 1rem;
 }
@@ -213,35 +187,14 @@ html, body {
 .curator-text {
     font-size: 0.95rem;
     line-height: 1.7;
-    color: var(--text-primary);
+    color: var(--text-main);
     font-weight: 300;
 }
 
-/* RESPONSIVE DESIGN FOR MOBILE & TABLET */
-@media (max-width: 900px) {
-    .museum-room {
-        height: auto;
-        min-height: 100vh;
-        padding: 6rem 6vw 4rem 6vw;
-        scroll-snap-align: none;
-    }
-
-    .museum-viewport {
-        height: auto;
-        overflow-y: visible;
-        scroll-snap-type: none;
-    }
-
-    .artwork-display, .layout-reverse {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-
-    .layout-reverse .artwork-frame {
-        order: 0;
-    }
-
-    .gallery-nav {
-        display: none;
-    }
+@media (max-width: 850px) {
+    .museum-viewport { height: auto; overflow-y: visible; scroll-snap-type: none; }
+    .museum-room { height: auto; min-height: 100vh; padding: 6rem 6vw 4rem; scroll-snap-align: none; }
+    .artwork-display, .layout-reverse { grid-template-columns: 1fr; gap: 2.5rem; }
+    .layout-reverse .artwork-frame { order: 0; }
+    .gallery-nav { display: none; }
 }
