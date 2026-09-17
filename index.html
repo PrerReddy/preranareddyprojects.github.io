@@ -1,200 +1,166 @@
-:root {
-    --bg-color: #0d0d0e;
-    --panel-bg: #141416;
-    --text-main: #f0f0f3;
-    --text-muted: #8e8e96;
-    --accent-gold: #c5a059;
-    --border-line: rgba(255, 255, 255, 0.07);
-    --font-serif: "Playfair Display", "Georgia", serif;
-    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    --font-mono: "SF Mono", "Courier New", monospace;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selected Artwork Archive — Prerana Reddy</title>
+      
+</head>
+<body>
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    <header class="museum-header">
+        <div class="museum-brand">Prerana Reddy — Digital Exhibition</div>
+        <nav class="gallery-nav">
+            <a href="#intro">Intro</a>
+            <a href="#room-1">01</a>
+            <a href="#room-2">02</a>
+            <a href="#room-3">03</a>
+            <a href="#room-4">04</a>
+            <a href="#room-5">05</a>
+            <a href="#room-6">06</a>
+        </nav>
+    </header>
 
-html, body {
-    background-color: var(--bg-color);
-    color: var(--text-main);
-    font-family: var(--font-sans);
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-}
+    <div class="museum-viewport">
 
-/* HEADER NAV */
-.museum-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 1.5rem 4vw;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 100;
-    background: rgba(13, 13, 14, 0.85);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border-line);
-}
+        <!-- INTRO PAGE -->
+        <section id="intro" class="museum-room intro-room">
+            <div class="curator-plaque">
+                <span class="plaque-label">SELECTED WORKS ARCHIVE</span>
+                <h1 class="artist-name">Prerana Reddy</h1>
+                <p class="intro-statement">
+                    Welcome to this digital gallery space. Each room exhibits a single painting alongside a brief curatorial statement detailing its form, texture, and inspiration. Scroll down to enter the exhibition rooms.
+                </p>
+            </div>
+        </section>
 
-.museum-brand {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    letter-spacing: 0.2em;
-    color: var(--text-muted);
-    text-transform: uppercase;
-}
+        <!-- ROOM 01 -->
+        <section id="room-1" class="museum-room">
+            <div class="artwork-display">
+                <div class="artwork-frame">
+                    <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?q=80&w=1200" alt="Painting 1">
+                </div>
+                <div class="museum-placard">
+                    <span class="placard-number">GALLERY ROOM 01</span>
+                    <h2 class="artwork-title">Chromatic Study I</h2>
+                    <div class="artwork-specs">
+                        <span>Oil on canvas</span>
+                        <span>120 × 150 cm</span>
+                        <span>2024</span>
+                    </div>
+                    <p class="curator-text">
+                        This piece investigates the subtle transition between deep darkness and emerging light across thick impasto layers. The bold strokes reflect an emotional tension captured during late-night studio sessions in early winter. Through varying directional brushwork, the canvas changes dynamically as ambient light shifts across its surface.
+                    </p>
+                </div>
+            </div>
+        </section>
 
-.gallery-nav {
-    display: flex;
-    gap: 1.5rem;
-}
+        <!-- ROOM 02 -->
+        <section id="room-2" class="museum-room">
+            <div class="artwork-display layout-reverse">
+                <div class="artwork-frame">
+                    <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=1200" alt="Painting 2">
+                </div>
+                <div class="museum-placard">
+                    <span class="placard-number">GALLERY ROOM 02</span>
+                    <h2 class="artwork-title">Velvet Shadow</h2>
+                    <div class="artwork-specs">
+                        <span>Acrylic and oil pastel</span>
+                        <span>100 × 100 cm</span>
+                        <span>2025</span>
+                    </div>
+                    <p class="curator-text">
+                        An exploration of fluid harmony, where diluted pigment creates ethereal background washes contrasted with sharp graphic marks. The composition balances chaotic texture with quiet, negative space to evoke a feeling of meditation. It serves as a visual inquiry into how memory fades and reforms over time.
+                    </p>
+                </div>
+            </div>
+        </section>
 
-.gallery-nav a {
-    color: var(--text-muted);
-    text-decoration: none;
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    transition: color 0.3s ease;
-}
+        <!-- ROOM 03 -->
+        <section id="room-3" class="museum-room">
+            <div class="artwork-display">
+                <div class="artwork-frame">
+                    <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=1200" alt="Painting 3">
+                </div>
+                <div class="museum-placard">
+                    <span class="placard-number">GALLERY ROOM 03</span>
+                    <h2 class="artwork-title">Echoes in Ochre</h2>
+                    <div class="artwork-specs">
+                        <span>Mixed media on linen</span>
+                        <span>90 × 140 cm</span>
+                        <span>2025</span>
+                    </div>
+                    <p class="curator-text">
+                        Drawing inspiration from natural erosion, earth pigments and raw charcoal dust were rubbed directly onto raw unprimed linen. The vertical emphasis creates an architectural presence that commands quiet contemplation from the observer. The tactile surface highlights raw material honesty over illusionistic rendering.
+                    </p>
+                </div>
+            </div>
+        </section>
 
-.gallery-nav a:hover {
-    color: var(--accent-gold);
-}
+        <!-- ROOM 04 -->
+        <section id="room-4" class="museum-room">
+            <div class="artwork-display layout-reverse">
+                <div class="artwork-frame">
+                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200" alt="Painting 4">
+                </div>
+                <div class="museum-placard">
+                    <span class="placard-number">GALLERY ROOM 04</span>
+                    <h2 class="artwork-title">Luminous Field</h2>
+                    <div class="artwork-specs">
+                        <span>Oil glazing on wood panel</span>
+                        <span>150 × 180 cm</span>
+                        <span>2025</span>
+                    </div>
+                    <p class="curator-text">
+                        Layered over six months using traditional translucent oil glazing techniques, this canvas produces an internal luminescence. The painting captures the precise moment light breaks through dense morning fog over water. Its expansive scale invites the viewer to step close and submerge themselves in subtle color fields.
+                    </p>
+                </div>
+            </div>
+        </section>
 
-/* FULLSCREEN ROOM SECTIONS */
-.museum-viewport {
-    height: 100vh;
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory;
-}
+        <!-- ROOM 05 -->
+        <section id="room-5" class="museum-room">
+            <div class="artwork-display">
+                <div class="artwork-frame">
+                    <img src="https://images.unsplash.com/photo-1578926375605-eaf7559b1458?q=80&w=1200" alt="Painting 5">
+                </div>
+                <div class="museum-placard">
+                    <span class="placard-number">GALLERY ROOM 05</span>
+                    <h2 class="artwork-title">Fragment VIII</h2>
+                    <div class="artwork-specs">
+                        <span>Collage and cold wax</span>
+                        <span>80 × 80 cm</span>
+                        <span>2026</span>
+                    </div>
+                    <p class="curator-text">
+                        Part of an ongoing series dealing with architectural ruin and urban decay, built with cold wax medium and torn paper fragments. The surface was repeatedly painted, scraped away, and rebuilt to mirror natural weathering processes. It questions what remains when structural forms collapse under environmental weight.
+                    </p>
+                </div>
+            </div>
+        </section>
 
-.museum-room {
-    height: 100vh;
-    width: 100vw;
-    scroll-snap-align: start;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 8vw;
-    position: relative;
-    background-color: var(--panel-bg);
-    border-bottom: 1px solid var(--border-line);
-}
+        <!-- ROOM 06 -->
+        <section id="room-6" class="museum-room">
+            <div class="artwork-display layout-reverse">
+                <div class="artwork-frame">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200" alt="Painting 6">
+                </div>
+                <div class="museum-placard">
+                    <span class="placard-number">GALLERY ROOM 06</span>
+                    <h2 class="artwork-title">Nocturne Study</h2>
+                    <div class="artwork-specs">
+                        <span>Charcoal and oil on canvas</span>
+                        <span>110 × 130 cm</span>
+                        <span>2026</span>
+                    </div>
+                    <p class="curator-text">
+                        A stark monochrome composition focusing on spatial silence and deep tonal contrast. Dark charcoal sweeps intersect wet white oil paint to create soft, atmospheric smoke effects. The piece serves as a quiet meditation on isolation, movement, and darkness within urban nightscapes.
+                    </p>
+                </div>
+            </div>
+        </section>
 
-/* INTRO ROOM */
-.intro-room {
-    background-color: var(--bg-color);
-}
+    </div>
 
-.curator-plaque {
-    max-width: 650px;
-    text-align: center;
-}
-
-.plaque-label {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    color: var(--accent-gold);
-    letter-spacing: 0.25em;
-    display: block;
-    margin-bottom: 1.5rem;
-}
-
-.artist-name {
-    font-family: var(--font-serif);
-    font-size: clamp(2.8rem, 5vw, 4.5rem);
-    font-weight: 400;
-    letter-spacing: -0.02em;
-    margin-bottom: 1.5rem;
-    line-height: 1.1;
-}
-
-.intro-statement {
-    font-size: 1.05rem;
-    line-height: 1.8;
-    color: var(--text-muted);
-    font-weight: 300;
-}
-
-/* DISPLAY GRID */
-.artwork-display {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 5vw;
-    align-items: center;
-    max-width: 1250px;
-    width: 100%;
-}
-
-.layout-reverse {
-    grid-template-columns: 1fr 1.2fr;
-}
-
-.layout-reverse .artwork-frame {
-    order: 2;
-}
-
-.artwork-frame {
-    background-color: #050505;
-    padding: 12px;
-    border: 1px solid var(--border-line);
-    box-shadow: 0 30px 60px rgba(0,0,0,0.6);
-}
-
-.artwork-frame img {
-    width: 100%;
-    max-height: 62vh;
-    object-fit: contain;
-    display: block;
-}
-
-.museum-placard {
-    max-width: 420px;
-}
-
-.placard-number {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    color: var(--accent-gold);
-    letter-spacing: 0.2em;
-    display: block;
-    margin-bottom: 0.75rem;
-}
-
-.artwork-title {
-    font-family: var(--font-serif);
-    font-size: clamp(1.8rem, 3vw, 2.5rem);
-    font-weight: 400;
-    margin-bottom: 1rem;
-}
-
-.artwork-specs {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    color: var(--text-muted);
-    margin-bottom: 1.5rem;
-    border-left: 2px solid var(--accent-gold);
-    padding-left: 1rem;
-}
-
-.curator-text {
-    font-size: 0.95rem;
-    line-height: 1.7;
-    color: var(--text-main);
-    font-weight: 300;
-}
-
-@media (max-width: 850px) {
-    .museum-viewport { height: auto; overflow-y: visible; scroll-snap-type: none; }
-    .museum-room { height: auto; min-height: 100vh; padding: 6rem 6vw 4rem; scroll-snap-align: none; }
-    .artwork-display, .layout-reverse { grid-template-columns: 1fr; gap: 2.5rem; }
-    .layout-reverse .artwork-frame { order: 0; }
-    .gallery-nav { display: none; }
-}
+</body>
+</html>
