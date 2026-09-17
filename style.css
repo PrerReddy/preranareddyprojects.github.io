@@ -34,7 +34,7 @@ html, body {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 1.5rem 4vw;
+    padding: 1.2rem 3vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -54,7 +54,8 @@ html, body {
 
 .gallery-nav {
     display: flex;
-    gap: 1.5rem;
+    gap: 1.2rem;
+    flex-wrap: wrap;
 }
 
 .gallery-nav a {
@@ -83,7 +84,7 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 8vw;
+    padding: 5rem 4vw 2rem 4vw;
     position: relative;
     background-color: var(--panel-bg);
     border-bottom: 1px solid var(--border-line);
@@ -95,7 +96,7 @@ html, body {
 }
 
 .curator-plaque {
-    max-width: 650px;
+    max-width: 700px;
     text-align: center;
 }
 
@@ -124,40 +125,48 @@ html, body {
     font-weight: 300;
 }
 
-/* ARTWORK DISPLAY GRID */
+/* ARTWORK DISPLAY GRID (75% image proportion) */
 .artwork-display {
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 5vw;
+    grid-template-columns: 3fr 1fr; /* Image takes ~75% width, placard takes ~25% */
+    gap: 3vw;
     align-items: center;
-    max-width: 1250px;
+    max-width: 1600px;
     width: 100%;
+    height: 100%;
 }
 
 .layout-reverse {
-    grid-template-columns: 1fr 1.2fr;
+    grid-template-columns: 1fr 3fr; /* Reversed for layout variety */
 }
 
 .layout-reverse .artwork-frame {
     order: 2;
 }
 
+/* ARTWORK FRAME & LARGER IMAGE SIZING */
 .artwork-frame {
     background-color: #050505;
     padding: 12px;
     border: 1px solid var(--border-line);
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 80vh; /* Expands image height to 80% of screen */
+    width: 100%;
 }
 
 .artwork-frame img {
     width: 100%;
-    max-height: 62vh;
+    max-height: 76vh; /* Fills up to ~3/4th of the viewport height */
     object-fit: contain;
     display: block;
 }
 
+/* PLACARD TEXT DETAILS */
 .museum-placard {
-    max-width: 420px;
+    max-width: 360px;
 }
 
 .placard-number {
@@ -171,7 +180,7 @@ html, body {
 
 .artwork-title {
     font-family: var(--font-serif);
-    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
     font-weight: 400;
     margin-bottom: 1rem;
 }
@@ -189,14 +198,14 @@ html, body {
 }
 
 .curator-text {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     line-height: 1.7;
     color: var(--text-main);
     font-weight: 300;
 }
 
 /* RESPONSIVE DESIGN FOR MOBILE & TABLETS */
-@media (max-width: 850px) {
+@media (max-width: 900px) {
     .museum-viewport { 
         height: auto; 
         overflow-y: visible; 
@@ -206,18 +215,22 @@ html, body {
     .museum-room { 
         height: auto; 
         min-height: 100vh; 
-        padding: 6rem 6vw 4rem; 
+        padding: 6rem 5vw 4rem; 
         scroll-snap-align: none; 
     }
     
     .artwork-display, 
     .layout-reverse { 
         grid-template-columns: 1fr; 
-        gap: 2.5rem; 
+        gap: 2rem; 
     }
     
     .layout-reverse .artwork-frame { 
         order: 0; 
+    }
+    
+    .artwork-frame img {
+        max-height: 65vh;
     }
     
     .gallery-nav { 
