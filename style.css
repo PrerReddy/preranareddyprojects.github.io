@@ -1,150 +1,247 @@
-/* Editorial Archive Container */
-.archive-container {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 280px 1fr;
-    background-color: #0a0a0a;
-    color: #e5e5e5;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+/* ==========================================================================
+   DIGITAL MUSEUM & EXHIBITION STYLESHEET
+   ========================================================================== */
+
+:root {
+    --museum-bg: #0b0b0c;
+    --museum-wall: #121214;
+    --text-primary: #e6e6ea;
+    --text-dim: #8a8a93;
+    --accent-gold: #c5a059;
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --font-serif: "Playfair Display", "Georgia", "Times New Roman", serif;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-mono: "SF Mono", "Courier New", monospace;
 }
 
-/* Sidebar Styling */
-.sidebar {
-    padding: 3rem 2rem;
-    border-right: 1px solid rgba(255, 255, 255, 0.15);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: sticky;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    background-color: var(--museum-bg);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* FIXED NAVIGATION HEADER */
+.museum-header {
+    position: fixed;
     top: 0;
-    height: 100vh;
-}
-
-.brand-title h2 {
-    font-size: 1.8rem;
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    line-height: 1;
-}
-
-.categories a {
-    display: block;
-    color: #777;
-    text-decoration: none;
-    font-family: monospace;
-    font-size: 0.75rem;
-    margin-bottom: 1rem;
-    letter-spacing: 0.05em;
-    transition: color 0.2s ease;
-}
-
-.categories a:hover, .categories a.active {
-    color: #fff;
-}
-
-.cat-num {
-    color: #444;
-    margin-right: 0.5rem;
-}
-
-/* Editorial Column Grid */
-.editorial-column-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-}
-
-.lane-column {
-    border-right: 1px solid rgba(255, 255, 255, 0.15);
-    padding: 2.5rem 1.25rem;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem 4vw;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background: linear-gradient(to bottom, rgba(11, 11, 12, 0.95), rgba(11, 11, 12, 0));
+    pointer-events: none;
+}
+
+.museum-brand {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    color: var(--text-dim);
+    pointer-events: auto;
+}
+
+.gallery-nav {
+    display: flex;
+    gap: 1.25rem;
+    pointer-events: auto;
+}
+
+.gallery-nav a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    transition: color 0.3s ease;
+}
+
+.gallery-nav a:hover {
+    color: var(--accent-gold);
+}
+
+/* SNAP SCROLL CONTAINER */
+.museum-viewport {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+}
+
+/* EACH ROOM / FULLSCREEN SECTION */
+.museum-room {
+    height: 100vh;
+    width: 100vw;
+    scroll-snap-align: start;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 8vw;
     position: relative;
-    background-color: #0a0a0a;
-    transition: background 0.3s ease;
+    border-bottom: 1px solid var(--border-subtle);
+    background-color: var(--museum-wall);
 }
 
-.lane-column:hover {
-    background-color: #111111;
+/* INTRO ENTRANCE ROOM */
+.intro-room {
+    background-color: var(--museum-bg);
 }
 
-.lane-header {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-    padding-bottom: 1.25rem;
+.curator-plaque {
+    max-width: 650px;
+    text-align: center;
+}
+
+.plaque-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent-gold);
+    letter-spacing: 0.2em;
+    display: block;
+    margin-bottom: 1.5rem;
+}
+
+.artist-name {
+    font-family: var(--font-serif);
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 400;
+    letter-spacing: -0.02em;
     margin-bottom: 2rem;
 }
 
-.lane-num {
-    font-family: monospace;
-    font-size: 0.7rem;
-    color: #666;
-    display: block;
-    margin-bottom: 0.5rem;
-}
-
-.lane-title {
+.intro-statement {
     font-size: 1.1rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    text-transform: uppercase;
+    line-height: 1.8;
+    color: var(--text-dim);
+    font-weight: 300;
 }
 
-/* Dot Rows */
-.index-row {
+.scroll-indicator {
+    margin-top: 4rem;
     display: flex;
-    align-items: baseline;
-    font-size: 0.8rem;
-    color: #aaa;
-    text-decoration: none;
-    margin-bottom: 1rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
 }
 
-.index-dots {
-    flex-grow: 1;
-    border-bottom: 1px dotted rgba(255, 255, 255, 0.2);
-    margin: 0 0.5rem;
+.line-down {
+    width: 1px;
+    height: 40px;
+    background-color: var(--accent-gold);
 }
 
-.index-number {
-    font-family: monospace;
-    font-size: 0.7rem;
-    color: #555;
-}
-
-/* Editorial Offset Image Cards */
-.floating-asset-container {
-    position: relative;
-    margin: 1.5rem 0;
-    background: #181818;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 6px;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.asset-tag {
-    font-family: monospace;
-    font-size: 0.6rem;
-    color: #888;
-    margin-bottom: 4px;
-    letter-spacing: 0.05em;
-}
-
-.floating-asset {
+/* ARTWORK DISPLAY GRID */
+.artwork-display {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 6vw;
+    align-items: center;
+    max-width: 1300px;
     width: 100%;
-    height: 200px;
-    object-fit: cover;
-    filter: grayscale(100%) contrast(110%);
-    transition: filter 0.4s ease;
 }
 
-.lane-column:hover .floating-asset {
-    filter: grayscale(0%) contrast(100%);
+.layout-reverse {
+    grid-template-columns: 1fr 1.2fr;
 }
 
-/* Unique offsets for poster-like dynamic grid feel */
-.offset-1 { transform: rotate(-1deg) translateY(0); }
-.offset-2 { transform: rotate(1.5deg) translateY(8px); }
-.offset-3 { transform: rotate(-1.5deg) translateY(-5px); }
+.layout-reverse .artwork-frame {
+    order: 2;
+}
 
-.lane-column:hover .floating-asset-container {
-    transform: rotate(0deg) translateY(-4px) scale(1.02);
+/* ARTWORK FRAME WITH SPOTLIGHT EFFECT */
+.artwork-frame {
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+    background-color: #000;
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.artwork-frame img {
+    width: 100%;
+    max-height: 65vh;
+    object-fit: contain;
+    display: block;
+}
+
+/* MUSEUM PLACARD SIDEBAR */
+.museum-placard {
+    max-width: 440px;
+}
+
+.placard-number {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--accent-gold);
+    letter-spacing: 0.2em;
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+.artwork-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 400;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+}
+
+.artwork-specs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    margin-bottom: 2rem;
+    border-left: 2px solid var(--accent-gold);
+    padding-left: 1rem;
+}
+
+.curator-text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text-primary);
+    font-weight: 300;
+}
+
+/* RESPONSIVE DESIGN FOR MOBILE & TABLET */
+@media (max-width: 900px) {
+    .museum-room {
+        height: auto;
+        min-height: 100vh;
+        padding: 6rem 6vw 4rem 6vw;
+        scroll-snap-align: none;
+    }
+
+    .museum-viewport {
+        height: auto;
+        overflow-y: visible;
+        scroll-snap-type: none;
+    }
+
+    .artwork-display, .layout-reverse {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .layout-reverse .artwork-frame {
+        order: 0;
+    }
+
+    .gallery-nav {
+        display: none;
+    }
 }
